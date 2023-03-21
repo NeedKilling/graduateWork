@@ -54,3 +54,21 @@ document.onscroll = function(){
     }
     
 }
+
+
+function clickFunction(){
+    document.getElementById("drop").classList.toggle("dropdown-content_show")
+}
+
+window.onclick = function(event){
+    if(!event.target.matches(".profile-btn")){
+        var dropdowns = document.getElementsByClassName("dropdown-content")
+        var i;
+        for(i = 0;i < dropdowns.length;i++){
+            var openDrop = dropdowns[i];
+            if(openDrop.classList.contains("dropdown-content_show")){
+                openDrop.classList.remove("dropdown-content_show");
+            }
+        }
+    }
+}

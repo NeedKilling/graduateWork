@@ -42,7 +42,43 @@ header
                     cursor: pointer
                     background: #303030
                     color: #303030
-
+        .dropdown-profile
+            position: relative
+            display: inline-block
+        .dropdown-content
+            gap: 17px
+            padding: 17px
+            top: 65px
+            right: 50%
+            transform: translateX(50%)
+            border-radius: 10px
+            display: none
+            min-width: 170px
+            position: absolute
+            z-index: 1
+            background: #202020
+            &_show
+                display: block
+            .line
+                display: block
+                margin: 0 auto
+                width: 88px
+                height: 2px
+                background: #565555
+                padding: 0
+            &__item
+                padding: 8px 0
+                display: block
+                font-weight: 300
+                font-size: 15px
+                line-height: 18px
+                color: #ffff
+                img
+                    position: relative
+                    top: 2.5px
+                    margin-right: 5px 
+                &:hover
+                    background: red
 
         .logo
             width: 50px

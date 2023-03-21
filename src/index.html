@@ -29,7 +29,16 @@
                       </form>
                     
                 </div>
-                <button class="profile"><img src="img/avatar_none.png" alt="avatar_none"></button>
+                <div class="dropdown-profile">
+                    <button onclick = "clickFunction()" class="profile-btn"><img src="img/avatar_none.png" alt="avatar_none"></button>
+                    <div id="drop" class="dropdown-content">
+                        <a href="#" class="dropdown-content__item"><img src="icons/1.svg" alt="">Профиль</a>
+                        <a href="#" class="dropdown-content__item"><img src="icons/2.svg" alt="">Уведомления</a>
+                        <a href="#" class="dropdown-content__item"><img src="icons/mark.svg" alt="">Закладки</a>
+                        <div class="dropdown-content__item line"></div>
+                        <button class="dropdown-content__item btn"><img src="icons/Exit.svg" alt="exit">Выйти</button>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
