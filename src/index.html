@@ -30,13 +30,13 @@
                     
                 </div>
                 <div class="dropdown-profile">
-                    <button onclick = "clickFunction()" class="profile-btn"><img src="img/avatar_none.png" alt="avatar_none"></button>
+                    <button onclick = "clickDropProfile()" class="profile-btn"><img src="img/avatar_none.png" alt="avatar_none"></button>
                     <div id="drop" class="dropdown-content">
                         <a href="#" class="dropdown-content__item"><img src="icons/1.svg" alt="">Профиль</a>
                         <a href="#" class="dropdown-content__item"><img src="icons/2.svg" alt="">Уведомления</a>
                         <a href="#" class="dropdown-content__item"><img src="icons/mark.svg" alt="">Закладки</a>
                         <div class="dropdown-content__item line"></div>
-                        <button class="dropdown-content__item btn"><img src="icons/Exit.svg" alt="exit">Выйти</button>
+                        <a href="#" class="dropdown-content__item btn"><img src="icons/Exit.svg" alt="exit"><span>Выйти</span></a>
                     </div>
                 </div>
             </nav>
@@ -185,7 +185,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,7 +214,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -225,7 +243,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,7 +272,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,7 +301,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -285,7 +330,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -305,7 +359,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -325,7 +388,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -345,7 +417,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -365,7 +446,16 @@
                         </div>
                         <div class="book-item__bottom">
                             <a href="#" class="read">Читать</a>
-                            <button class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                            <div class="book-dropdown">
+                                <button onclick="clickDropBookmark()" class="mark"><img src="icons/mark.svg" alt="mark"> Закладка</button>
+                                <ul id="dropBookmark" class="dropdown-ul">
+                                    <li class="dropdown-ul__item">Читаю</li> 
+                                    <li class="dropdown-ul__item">В планах</li>
+                                    <li class="dropdown-ul__item">Прочитано</li>
+                                    <li class="dropdown-ul__item">Любимое</li>
+                                    <li class="dropdown-ul__item">Брошено</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -56,19 +56,65 @@ document.onscroll = function(){
 }
 
 
-function clickFunction(){
-    document.getElementById("drop").classList.toggle("dropdown-content_show")
-}
+// function clickDropProfile(){
+//     document.getElementById("drop").classList.toggle("dropdown-content_show")
+// }
+// // Закрыть модальное окно при Escape
+// window.addEventListener('keydown', (e) => {
+//     if (e.key == 'Escape'){
+//         document.querySelector('#drop').classList.remove("dropdown-content_show")
+//     }
+// })
+// Закрыть модальное окно при клике вне его
 
-window.onclick = function(event){
-    if(!event.target.matches(".profile-btn")){
-        var dropdowns = document.getElementsByClassName("dropdown-content")
-        var i;
-        for(i = 0;i < dropdowns.length;i++){
-            var openDrop = dropdowns[i];
-            if(openDrop.classList.contains("dropdown-content_show")){
-                openDrop.classList.remove("dropdown-content_show");
-            }
-        }
-    }
+    const button = document.querySelector('.profile-btn') // находим кнопку для открытия/закрытия окна навигации
+    const nav = document.querySelector('.dropdown-content') // находим окно навигации
+  
+    button.addEventListener('click', () => { // при клике на кнопку
+      nav.classList.toggle('dropdown-content_show') // открываем/закрываем окно навигации, добаляя/удаляя активный класс
+    })
+  
+    window.addEventListener('click', e => { // при клике в любом месте окна браузера
+      const target = e.target // находим элемент, на котором был клик
+      if (!target.closest('.dropdown-content') && !target.closest('.profile-btn')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+        nav.classList.remove('dropdown-content_show') // то закрываем окно навигации, удаляя активный класс
+      }
+    })
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function clickDropBookmark(){
+    document.getElementById("dropBookmark").classList.toggle("dropdown-ul__show")
 }
+// Закрыть модальное окно при Escape
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape'){
+        document.querySelector('#dropBookmark').classList.remove("dropdown-ul__show")
+    }
+})
+
+/////// Замена текста
+$('.dropdown-ul__item').click(function () {
+    if($('.mark').attr('data-show') === "true") {
+        $('.mark').text("Закладка");
+        $('.mark').attr('data-show', "false"); 
+    }
+    else {
+        //var elements = document.getElementsByClassName("dropdown-ul__item");
+        var item = document.getElementsByClassName('.dropdown-ul__item');
+        function text(){
+            if(item === 'Читать')
+            return console.log('fafsffa');
+        }
+        text()
+            $('.mark').text("ds");
+            $('.mark').attr('data-show', "true");
+        
+       
+    }
+});
