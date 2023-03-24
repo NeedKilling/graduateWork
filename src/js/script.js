@@ -98,23 +98,23 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
-/////// Замена текста
-$('.dropdown-ul__item').click(function () {
-    if($('.mark').attr('data-show') === "true") {
-        $('.mark').text("Закладка");
-        $('.mark').attr('data-show', "false"); 
-    }
-    else {
-        //var elements = document.getElementsByClassName("dropdown-ul__item");
-        var item = document.getElementsByClassName('.dropdown-ul__item');
-        function text(){
-            if(item === 'Читать')
-            return console.log('fafsffa');
-        }
-        text()
-            $('.mark').text("ds");
-            $('.mark').attr('data-show', "true");
+// /////// Замена текста
+// $('.dropdown-ul__item').click(function () {
+//     if($('.mark').attr('data-show') === "true") {
+//         $('.mark').text("Закладка");
+//         $('.mark').attr('data-show', "false"); 
+//     }
+//     else {
+//         //var elements = document.getElementsByClassName("dropdown-ul__item");
+//         var item = document.getElementsByClassName('.dropdown-ul__item');
+//         function text(){
+//             if(item === 'Читать')
+//             return console.log('fafsffa');
+//         }
+//         text()
+//             $('.mark').text("ds");
+//             $('.mark').attr('data-show', "true");
         
        
-    }
-});
+//     }
+// });
