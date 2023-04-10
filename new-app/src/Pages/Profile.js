@@ -1,10 +1,10 @@
 
 import React from 'react';
 import {Component} from 'react';
+import Categorias from '../component/Categorias';
 
 import profile_image from "../assets/icons/profile_big.svg"
 import profile_back from "../assets/img/profile_back.jpg"
-
 import testmin from "../assets/img/book.png"
 
 class Profile extends Component{
@@ -21,13 +21,17 @@ class Profile extends Component{
                     <a href="#" class="navBar_link">Списки</a>
                     <a href="#" class="navBar_link">Настройки</a>
                 </div>
-                <ul class="profile_list">
-                    <li class="item"><a href="#">Читаю</a></li>
-                    <li class="item"><a href="#">В планах</a></li>
-                    <li class="item"><a href="#">Прочитано</a></li>
-                    <li class="item"><a href="#">Любимое</a></li>
-                    <li class="item"><a href="#">Брошено</a></li>
-                </ul>
+               <Categorias 
+               onClickItem = {(name)=>console.log(name)}
+               items={[
+                "Читаю",
+                "В планах",
+                "Прочитано",
+                "Любимое",
+                "Брошено"
+               ]}
+               
+               />
                 <div class="content">
                     <div class="content_item">
                        <div class="img"><img src={testmin} alt="book"></img></div>
