@@ -22,7 +22,7 @@ class Profile extends Component{
                     <a href="#" class="navBar_link">Настройки</a>
                 </div>
                <Categorias 
-               onClickItem = {(name)=>console.log(name)}
+            //    onClickItem = {(name)=>console.log(name)}
                items={[
                 "Читаю",
                 "В планах",

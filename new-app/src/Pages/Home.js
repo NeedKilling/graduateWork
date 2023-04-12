@@ -1,12 +1,12 @@
 import React from 'react';
 import {Component} from 'react';
+import SliderBig from '../component/Slider/SliderBig';
+import SliderMin from '../component/Slider/SliderMin';
 
-import testmin from "../assets/img/book.png"
-import testslider01 from "../assets/img/main.png"
-import testslider from "../assets/img/slider_book.png"
 import star from "../assets/icons/star.svg"
 import testbig from "../assets/img/01.png"
 import bookmark from "../assets/icons/mark.svg"
+import Slider from 'react-slick';
 
 
 class Home extends Component{
@@ -22,109 +22,12 @@ class Home extends Component{
     <div className="container">
         <div className="continueRead_block">
             <h2 className="title">Продолжить чтение</h2>
-            <div className="contineSlider">
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>    
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-                <a href="#" className="book">
-                    <div className="book_img"><img src={testmin} alt="book"></img></div>
-                    <div className="book_name">Повелитель</div>
-                    <div className="book_subName">Overlord</div>
-                </a>
-            </div>
+           <SliderMin/>
         </div>
     </div>
 </div>
 
-    <div className="slider">
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider} alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-        <a href="#" className="slider_book">
-            <div className="slider_book_img"><img src={testslider01} alt="book"></img></div>
-            <div className="slider_book_name">Повелитель</div>
-            <div className="slider_book_subName">Overlord</div>
-        </a>
-    </div>
+    <SliderBig/>
 
     <div className="lastUpdate">
         <div className="container">
