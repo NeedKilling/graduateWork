@@ -1,30 +1,33 @@
-import React from 'react'
+import React,{ useState } from 'react'
 
 
 function Categorias ({items,onClickItem}){
-  // state = {
-  //   activeItem : 3,
-  // }
-  // SelectItem = {
+  const [activeState,setActiveState] = useState(null);
+  
+  const selectState = (index) => {
+    setActiveState(index);
+  }
 
-  // }
     return (
        
          <ul class="profile_list">
 
-            <li class="item item_active">Все</li>
+            <li onClick = {() => selectState(null)} 
+            className={activeState === null ? 'item item_active' : 'item'}>Все</li>
             {
-              items.map((name,index)=><li 
+              items && items.map((name,index)=><li 
 
-              onClick = {()=> onClickItem(name)}
+              onClick = {()=> selectState(index)}
 
               key={`${name}_${index}`} 
 
-              className='item'>{name}
+              className={activeState === index ? 'item item_active': 'item'}>{name}
 
               </li>)
             }
-            
+            <div>
+      
+    </div>
         </ul>
        
       )
