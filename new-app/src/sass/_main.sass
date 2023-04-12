@@ -14,7 +14,8 @@
 
     100% 
         transform: translate(-2px, -2px)
-
+*
+    user-select: none
 *
     .container 
         width: 1146px
@@ -78,24 +79,31 @@ header
         .dropdown-content
             padding: 17px
             top: 65px
-            right: 50%
-            transform: translateX(50%)
+            //right: 50%
+            //transform: translateX(50%)
+            right: 0px
             border-radius: 10px
-            display: none
+            display: block
             min-width: 170px
             position: absolute
             z-index: 1
-            background: #202020
+            background:#252525
             text-align: start
+            transition: all .2s ease
+            transform: scale(0)
+            border: 1px solid #303030
+            box-shadow: 0 0 10px #303030
             &_show
-                display: block
+                transform: scale(1)
             .line
                 display: block
                 margin: 0 auto
-                width: 88px
-                height: 2px
+                width: 150  px
+                height: 1px
                 background: #565555
                 padding: 0
+                margin-top: 10px
+                margin-bottom: 10px
             &__item
                 padding: 8px 0 8px 5px
                 display: block
@@ -105,6 +113,7 @@ header
                 color: #ffff
                 border-radius: 5px
                 transition: all .2s ease
+                
                 span
                     color: red
                 img
@@ -112,7 +121,7 @@ header
                     top: 2.5px
                     margin-right: 5px 
                 &:hover
-                    background: #303030
+                    background: #303030 
                 &:active
                     transform: scale(1.1)
                 
@@ -593,13 +602,17 @@ header
             font-size: 18px
             line-height: 21px
             color: #FFFFFF
+            cursor: pointer
+            user-select: none
             &_active
-                background-color: #303030
-                transform: scale(1.1)
+                background-color: #272727
+                transform: translate(-20%)
+                
             &:hover
                 background-color: #303030
             &:active
-                transform: scale(1.1)
+                //transform: scale(1.1)
+                transform: translateX(0%)
             &:focus
                 outline: none
                 text-decoration: none
@@ -660,17 +673,38 @@ header
         display: flex
         gap: 10px
         flex-wrap: wrap
-    .title
+    &_head
         display: flex
+        justify-content: space-between
         align-items: center
-        padding-left: 15px
+        padding: 0 15px 0 15px
         width: 843px
         height: 52px
         background-color: #202020
         border-radius: 10px
+    .title
+        border-radius: 10px
         font-weight: 300
         font-size: 20px
         color: #FFFFFF
+    &_sort
+        display: flex
+        gap: 15px
+        .text
+            padding: 5px
+            display: flex
+            font-weight: 300
+            font-size: 16px
+            line-height: 19px
+            color: #FFFFFF
+        .btn_drop
+            position: relative
+            top:2px
+            font-weight: 300
+            font-size: 13px
+            line-height: 16px
+            color: #FFFFFF
+        
     .content
         display: flex
         flex-wrap: wrap
@@ -699,26 +733,38 @@ header
                 line-height: 100%
                 color: #FFFFFF
     .sortBar
-        padding: 10px
+        padding: 10px 
         position: absolute
         right: 0
         top: 0
         width: 293px
         background-color: #202020
-        border-radius: 10px
+        border-radius: 10px 
         &_item
-            padding: 0 14px 0 14px
-            height: 39px
+            padding: 0 20px 0 20px 
             display: flex
-            justify-content: space-between
+            flex-direction: column
             border-radius: 10px
             transition: all .4s ease
-            &:hover
-                background-color: #303030
             .apper
                 display: none
+            .check
+                display: flex
+                flex-wrap: wrap
+                justify-content: space-between
+                
+                padding: 0 0 5px 0
+                &_item
+                    margin-bottom: 10px
+                label
+                    padding-left: 5px
+                    font-weight: 300
+                    font-size: 16px
+                    line-height: 19px
+                    color: #FFFFFF
 
         .text
+            padding: 5px 0 5px 0
             display: flex
             align-items: center
             font-weight: 300
@@ -883,7 +929,7 @@ header
 
 .subscription
     margin-top: 35px
-    padding-bottom: 22%
+    padding-bottom: 40%
     .tarif
         background-color: #202020
         padding: 20px 29px 35px 29px
