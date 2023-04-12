@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProfileDrop from './ProfileDrop'
 
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
@@ -6,10 +6,6 @@ import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 import Logo from "../../assets/img/Logo.svg"
 import search from "../../assets/icons/search.svg"
 import profileAvatar from "../../assets/img/avatar_none.png"
-import profileIcon from "../../assets/icons/1.svg"
-import notifications from "../../assets/icons/2.svg"
-import bookmark from "../../assets/icons/mark.svg"
-import exit from "../../assets/icons/Exit.svg"
 
 import Home from "../../Pages/Home"
 import Profile from "../../Pages/Profile"
@@ -18,10 +14,7 @@ import Popular from '../../Pages/Popular';
 import Subscription from '../../Pages/Subscription'
 
 function Header(){
-
-    const drop = () =>{
-        alert("done")
-    }
+const [dropActive,setDropActive] = useState(true)
    
 
 return(
@@ -42,19 +35,14 @@ return(
                 </form>
             </div>
            
-            <div className="dropdown-profile">
-            <ProfileDrop onClick={drop}>
-                        <img src={profileAvatar} alt="avatar_none"></img>
-                        <div id="drop" className="dropdown-content">
-                            <a href="/Profile" className="dropdown-content__item"><img src={profileIcon} alt=""></img>Профиль</a>
-                            <a href="#" className="dropdown-content__item"><img src={notifications} alt=""></img>Уведомления</a>
-                            <a href="#" className="dropdown-content__item"><img src={bookmark} alt=""></img>Закладки</a>
-                            <div className="dropdown-content__item line"></div>
-                            <a href="#" className="dropdown-content__item btn"><img src={exit} alt="exit"></img><span>Выйти</span></a>
-                        </div>
+            
+            <div onClick={() => setDropActive(prev => !prev)} className='dropdown-profile'>
+                    <img src={profileAvatar} alt="avatar_none"></img>
+                <ProfileDrop active={dropActive} setActive={setDropActive}/>
+            </div>           
                 
-            </ProfileDrop> 
-            </div>
+            
+            
             
         </nav>
     </div>
