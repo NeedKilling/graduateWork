@@ -26,7 +26,7 @@ function Footer(){
         <ul className="menu-footer">
                 <li><a href="/Popular" className="menu-footer__link">Популярное</a></li>
                 <li><a href="/Catalog" className="menu-footer__link">Каталог</a></li>
-                <li><a href="/Subsctiption" className="menu-footer__link">Подписка</a></li>
+                <li><a href="/Subscription" className="menu-footer__link">Подписка</a></li>
         </ul>
 
         <ul className="list">
