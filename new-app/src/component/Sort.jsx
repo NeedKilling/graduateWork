@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
 import { useState, useRef } from 'react';
 
-function Sort() {
+function Sort({items}) {
 
     const [visibleSort , setvisibleSort] = useState(false)
     const sortRef = useRef();
+    const [activeSort, setActiveSort] = useState(0)
     
+    const activeName = items[activeSort] // предмет[0]
+
+
+    const switchActive = (index) =>{
+        setActiveSort(index)
+    }
 
         const taggleSort = () => {
             setvisibleSort(!visibleSort)
@@ -29,14 +36,19 @@ function Sort() {
         <div>
             <div  className="catalog_sort">
                 <div className="text">Сортировать по</div>
-                <button ref ={sortRef} onClick={taggleSort} className="btn_drop">популярности</button>
+                <button ref ={sortRef} onClick={taggleSort} className="btn_drop">{activeName}</button>
             </div>
-            {visibleSort && <div className="catalog_drop">
-                                 <div className='catalog_drop_item'>популярности</div>
-                                 <div className='catalog_drop_item'>алфавиту</div>
-                                 <div className='catalog_drop_item'>дате релиза</div>
-                             </div>
-            }
+            {visibleSort && (<div className="catalog_drop">
+                {
+                items && items.map((name,index)=><div onClick={()=>switchActive(index)} 
+                key={`${name}_${index}`} 
+                className={activeSort === index ? 'catalog_drop_item active': "catalog_drop_item"}>
+
+                {name}
+                </div>)
+                }
+            </div>
+            )}
         </div>
   )
 }
