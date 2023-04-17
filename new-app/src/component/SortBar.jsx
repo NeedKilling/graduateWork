@@ -2,10 +2,10 @@ import React from 'react'
 
 function SortBar({items}) {
   return (
-    <div class="sortBar">
-                    <div class="sortBar_item">
-                        <div class="text">Жанр</div>
-                        <div class="check">
+    <div className="sortBar">
+                    <div className="sortBar_item">
+                        <div className="text">Жанр</div>
+                        <div className="check">
                            <div className="column">
                             <div className="check_item">
                                     <input type="checkbox" id="fantasy" name="fantasy"/>
@@ -36,9 +36,9 @@ function SortBar({items}) {
                             </div>
                         </div>
                     </div>
-                    <div class="sortBar_item country">
-                        <div class="text">Страна</div>
-                        <div class="check">
+                    <div className="sortBar_item country">
+                        <div className="text">Страна</div>
+                        <div className="check">
                             <div className="check_item">
                                 <input type="checkbox" id="Japan" name="Japan"/>
                                 <label for="Japan">Япония</label>
@@ -58,9 +58,9 @@ function SortBar({items}) {
                         <button class="btn_drop">за все время</button>
                     </div> */}
 
-                <div class="navigat">   
-                        <button class="btn show">Показать</button>
-                        <button class="btn reset">Сбросить</button>
+                <div className="navigat">   
+                        <button className="btn show">Показать</button>
+                        <button className="btn reset">Сбросить</button>
                 </div>
 
             </div>
