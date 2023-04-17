@@ -2,7 +2,6 @@ import React from 'react';
 import {Component} from 'react';
 
 
-
 class Subscription extends Component{
     render(){
         return(

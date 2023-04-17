@@ -2,7 +2,6 @@
 import React from 'react';
 import {Component} from 'react';
 
-
 import drop from "../assets/icons/drop.svg"
 import iconTwo from "../assets/icons/Two.svg"
 import iocnOne from "../assets/icons/One.svg"

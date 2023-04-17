@@ -1,7 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
-import SliderBig from '../component/Slider/SliderBig';
-import SliderMin from '../component/Slider/SliderMin';
+import {SliderBig,SliderMin} from '../component';
+
 
 import star from "../assets/icons/star.svg"
 import testbig from "../assets/img/01.png"
