@@ -4,8 +4,7 @@ import Slider from "react-slick";
 import testslider01 from "../../assets/img/main.png"
 import testslider from "../../assets/img/slider_book.png"
 
-export default class SliderBig extends Component {
-  render() {
+export default function SliderBig ({items}) {
     const settings = {
     //   dots: true,
     //   infinite: true,
@@ -35,70 +34,21 @@ export default class SliderBig extends Component {
        
         <div className="slider">
         <Slider {...settings}>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider} alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider}  alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
-            <a href="#" className="slider_book">
-                <div className="slider_book_img"><img src={testslider01} alt="book"></img></div>
-                <div className="slider_book_name">Повелитель</div>
-                <div className="slider_book_subName">Overlord</div>
-            </a>
+            {
+                items.map(obj => (
+                    <a href="#" className="slider_book">
+                        <div className="slider_book_img"><img src={obj.imageUrl}  alt="book"></img></div>
+                        <div className="slider_book_name">{obj.name}</div>
+                        <div className="slider_book_subName">{obj.subName}</div>
+                        
+                    </a>
+                ))
+            }
+           
         </Slider>
     </div>
         
       </div>
     );
-  }
+  
 }
