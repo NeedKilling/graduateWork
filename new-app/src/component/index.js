@@ -6,3 +6,4 @@ export {default as SortBar} from "./SortBar";
 export {default as Sort} from "./Sort";
 export {default as SliderBig} from "./Slider/SliderBig";
 export {default as SliderMin} from "./Slider/SliderMin";
+export {default as BookMark} from "./BookMark"
