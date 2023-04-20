@@ -10,8 +10,9 @@ import iconThree from "../assets/icons/Three.svg"
 import testmin from "../assets/img/book.png"
 import o1 from "../assets/img/01.png"
 import one from "../assets/img/one.png"
-class Popular extends Component{
-    render(){
+
+function Popular(){
+    
         return(
 
 <div class="popular">
@@ -75,7 +76,7 @@ class Popular extends Component{
 </div>
         
         )
-    }
+    
 }
 
 export default Popular;

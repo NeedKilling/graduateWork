@@ -2,13 +2,14 @@
 
 import React from 'react';
 import {Component} from 'react';
-import {SortBar, Sort} from '../component';
+import {SortBar, Sort, BookBlock} from '../component';
 
 import testmin from "../assets/img/book.png"
 
 
-class Catalog extends Component{
-    render(){
+function Catalog ({items}){
+        
+    
         return(
             <div>
                 
@@ -22,15 +23,25 @@ class Catalog extends Component{
             </div>
             
             
-            <div className="content">
-                <div className="book">
-                    <img src={testmin} alt=""></img>
-                    <div className="book_title">
-                        <div className="book_name">Повелитель</div>
-                        <div className="book_subname">Overlord</div>
+            <div className="content"> 
+               {
+                items.map(obj => (
+                    // <BookBlock
+                    // key = {obj.id} 
+                    // name = {obj.name} 
+                    // subName={obj.subName} 
+                    // image = {obj.imageUrl}
+                    // />
+                    <div key = {obj.id}  className="book">
+                        <img src={obj.imageUrl} alt=""></img>
+                        <div className="book_title">
+                            <div className="book_name">{obj.name}</div>
+                            <div className="book_subname">{obj.subName}</div>
+                            <div className = "tooltipText">{obj.name}</div>
+                        </div>
                     </div>
-                </div>
-            
+                ))
+               }     
             </div>
             <SortBar/>
         </div>
@@ -40,7 +51,7 @@ class Catalog extends Component{
                 
             </div>
         )
-    }
+    
 }
 
 export default Catalog;

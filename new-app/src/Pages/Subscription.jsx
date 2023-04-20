@@ -2,8 +2,8 @@ import React from 'react';
 import {Component} from 'react';
 
 
-class Subscription extends Component{
-    render(){
+function Subscription(){
+    
         return(
             <div class="subscription">
             <div class="container">
@@ -86,7 +86,7 @@ class Subscription extends Component{
             </div>
         </div>
         )
-    }
+    
 }
 
 export default Subscription;

@@ -7,8 +7,8 @@ import profile_image from "../assets/icons/profile_big.svg"
 import profile_back from "../assets/img/profile_back.jpg"
 import testmin from "../assets/img/book.png"
 
-class Profile extends Component{
-    render(){
+function Profile(){
+    
         return(
 
     <div class="profile">
@@ -16,7 +16,7 @@ class Profile extends Component{
             <div class="wrapper">
                     <div class="profile_image"><img src={profile_image} alt="image"></img></div>
                     <div class="profile_intro"><img src={profile_back} alt="image_back"></img></div>
-                    <div class="profile_nickName"><div class="nick">MERLIN</div></div>
+                    <div class="profile_nickName"><div class="nick">USER</div></div>
                 <div class="profile_navBar">
                     <a href="#" class="navBar_link">Списки</a>
                     <a href="#" class="navBar_link">Настройки</a>
@@ -82,7 +82,7 @@ class Profile extends Component{
     </div>
 
         )
-    }
+    
 }
 
 export default Profile;
