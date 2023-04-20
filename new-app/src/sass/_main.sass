@@ -21,6 +21,8 @@
         width: 1146px
         margin: 0 auto
 //
+html, html img
+    -webkit-font-smoothing: antialiased
 html,
 body
     height: 100%
@@ -216,7 +218,10 @@ header
                 &:first-child
                     margin-left: 0px
                 &_img
-                    border-radius: 10px
+                    img
+                        width: 155px
+                        height: 218px
+                        border-radius: 10px
                 &_name
                     font-weight: 300
                     font-size: 20px
@@ -271,20 +276,28 @@ header
         min-height: 258px
         width: 174px
         &_img
-            border-radius: 10px
+            img
+                width: 174px
+                height: 258px
+                border-radius: 10px
+
         &_name
+            position: relative
             font-weight: 300
-            font-size: 24px
+            font-size: 17px
             line-height: 28px
             color: #FFFFFF
             transition: all .2s ease
+            word-wrap: break-word
             &:hover
                 color: #928D8D
+                
         &_subName
             font-weight: 400
             font-size: 14px
             line-height: 16px
-            color: #928D8D 
+            color: #928D8D
+        
         &:focus 
             outline: none
                        
@@ -295,9 +308,9 @@ header
     overflow: hidden
 /////////////////////////////////////////
 .lastUpdate
-    padding-bottom: 310px
+    //padding-bottom: 310px
     display: block
-    margin-top: 35px
+    margin-top: 25px
     &__title
         display: flex
         justify-content: space-between
@@ -307,6 +320,7 @@ header
             font-size: 24px
             line-height: 28px
             color: #FFFFFF
+        
     .line
         width: 388px
         height: 1px
@@ -325,24 +339,36 @@ header
             min-height: 358px
             &__top
                 display: flex
-                gap: 20px 
+                gap: 20px
+            &__left
+                img
+                    width: 222px
+                    height: 296px
+                    border-radius: 10px
             &__right
                 .right-title
+                    margin-right: 50px
                     font-weight: 300
                     font-size: 24px
                     line-height: 33px
                     color: #FFFFFF
                     transition: all .2s ease
+                    span
+                        word-break: break-all   
+                        font-size: 20px
+                        color: #928D8D
+
                     &:hover
                         color: #928D8D
                 .right-description
                     width: 557px
-                    word-break: break-all
-                    margin-top: 50px
+                    //word-break: break-all
+                    margin-top: 20px
                     font-weight: 300
                     font-size: 16px
                     line-height: 22px
                     color: #FFFFFF
+                    text-align: justify
             .rating
                 display: flex
                 position: absolute
@@ -404,7 +430,7 @@ header
                     position: relative
                     display: block
                 .dropdown-ul
-                    display: none
+                    display: block
                     top: 36px
                     z-index: 1
                     position: absolute
@@ -413,7 +439,6 @@ header
                     right: 50%
                     transform: translateX(50%)
                     border-radius: 10px
-                    
                     &__item
                         padding: 5px 5px
                         font-weight: 300
@@ -425,9 +450,11 @@ header
                         li
                             cursor: pointer
                         &:hover
-                            background: #4F4F4F 
-                    &__show
-                        display: block
+                            background: #4F4F4F
+
+                        &_active
+                            color: #3384da
+                            background-color: #4F4F4F
     .more
         display: block   
         width: 200px
@@ -447,9 +474,9 @@ header
 
 
 .footer
-    position: absolute
-    left: 0
-    bottom: 0
+    // position: absolute
+    // left: 0
+    // bottom: 0
     width: 100%
     padding: 71px 0 71px 0
     height: 300px
@@ -667,7 +694,7 @@ header
 
 .catalog
     margin-top: 35px
-    padding-bottom: 50% 
+    padding-bottom: 20% 
     .wrapper
         position: relative
         display: flex
@@ -715,6 +742,7 @@ header
         border: 1px solid #303030
         box-shadow: 0 0 10px #303030
         border-radius: 10px
+        z-index: 1
         &_item
             padding: 10px
             font-weight: 300
@@ -744,21 +772,62 @@ header
             position: relative
             width: 155px
             height: 218px
+            img
+                width: 155px
+                height: 218px
+                border-radius: 10px 
             &_title
                 position: absolute
-                left: 10px
-                bottom: 15px
-
+                padding: 5px 10px 10px 10px
+                left: 0px
+                bottom: 0px
+                width: 100%
+                background-color: rgba(0, 0, 0, 0.5)
+                border-radius: 0 0 10px 10px
+                &:hover
+                    .tooltipText
+                        visibility: visible
+                        opacity: 1
             &_name
+                position: relative
                 font-weight: 300
-                font-size: 15px
+                font-size: 14px
                 line-height: 100%
                 color: #FFFFFF
+                overflow: hidden
+                white-space: nowrap
+
+            .tooltipText
+                //visibility: hidden
+                
+                padding: 5px
+                background-color: #ebdede
+                color: #ffffff
+                position: absolute
+                top:-25px
+                left: 10px
+                z-index: 1
+                border-radius: 5px
+                /////////текст
+                margin-top: 5px
+                font-weight: 300
+                font-size: 12px
+                line-height: 100%
+                color: #252627
+                white-space: nowrap
+                opacity: 0
+                transition: opacity 0.3s
+            
+
+
+
             &_subname
+                margin-top: 5px
                 font-weight: 300
-                font-size: 15px
+                font-size: 11px
                 line-height: 100%
-                color: #FFFFFF
+                color: #7faabf
+                
     .sortBar
         padding: 10px 
         position: absolute
