@@ -1,15 +1,12 @@
 
 
 import React from 'react';
-import {Component} from 'react';
 import {SortBar, Sort, BookBlock} from '../component';
-
-import testmin from "../assets/img/book.png"
-
+import BookCatalog from '../component/BookBlock/BookCatalog';
+import store from '../redux/store';
 
 function Catalog ({items}){
         
-    
         return(
             <div>
                 
@@ -19,7 +16,7 @@ function Catalog ({items}){
         <div className="wrapper">            
             <div className="catalog_head">
                 <div className="title">Каталог</div>
-                <Sort items={["популярности", "алфавиту","дате релиза"]} />
+                <Sort items={[{name: "популярности",type:'popular'},{name: "алфавиту",type: "alphabet"},{name: "дате релиза",type: "data"}]} />
             </div>
             
             
@@ -32,16 +29,12 @@ function Catalog ({items}){
                     // subName={obj.subName} 
                     // image = {obj.imageUrl}
                     // />
-                    <div key = {obj.id}  className="book">
-                        <img src={obj.imageUrl} alt=""></img>
-                        <div className="book_title">
-                            <div className="book_name">{obj.name}</div>
-                            <div className="book_subname">{obj.subName}</div>
-                            <div className = "tooltipText">{obj.name}</div>
-                        </div>
-                    </div>
+                    
+                    <BookCatalog key = {obj.id} {...obj}/>
+                    
                 ))
-               }     
+               } 
+               
             </div>
             <SortBar/>
         </div>
