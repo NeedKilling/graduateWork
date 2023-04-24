@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
+import axios from 'axios'
+
 import {Header, Footer} from './component';
 
 import {Routes,Route} from 'react-router-dom'
@@ -9,9 +10,12 @@ function App() {
 const [bookBlock,setBookBlock] = React.useState([])
 
 React.useEffect(()=>{
-  fetch("http://localhost:3000/db.json").then((response)=> response.json()).then(json=>{
-    setBookBlock(json.book)
+  axios.get("http://localhost:3000/db.json").then(({data}) =>{
+    setBookBlock(data.book)
   });
+  // fetch("http://localhost:3000/db.json").then((response)=> response.json()).then(json=>{
+  //   setBookBlock(json.book)
+  // });
 }, []);
 
 console.log(bookBlock)
