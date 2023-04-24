@@ -7,7 +7,7 @@ function Sort({items}) {
     const sortRef = useRef();
     const [activeSort, setActiveSort] = useState(0)
     
-    const activeName = items[activeSort] // предмет[0]
+    const activeName = items[activeSort].name // предмет[0]
 
 
     const switchActive = (index) =>{
@@ -40,11 +40,11 @@ function Sort({items}) {
             </div>
             {visibleSort && (<div className="catalog_drop">
                 {
-                items && items.map((name,index)=><div onClick={()=>switchActive(index)} 
-                key={`${name}_${index}`} 
+                items && items.map((object,index)=><div onClick={()=>switchActive(index)} 
+                key={`${object.type}_${index}`} 
                 className={activeSort === index ? 'catalog_drop_item active': "catalog_drop_item"}>
 
-                {name}
+                {object.name}
                 </div>)
                 }
             </div>

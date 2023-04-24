@@ -7,3 +7,5 @@ export {default as Sort} from "./Sort";
 export {default as SliderBig} from "./Slider/SliderBig";
 export {default as SliderMin} from "./Slider/SliderMin";
 export {default as BookMark} from "./BookMark"
+export {default as BookHome} from "./BookBlock/BookHome"
+export {default as BookCatalog} from './BookBlock/BookCatalog'

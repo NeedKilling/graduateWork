@@ -1,6 +1,19 @@
 import React from 'react'
 
 function SortBar({items}) {
+   const country = ["Япония","Корея","Китай"]
+
+    const [checkJapan,setCheckJapan] = React.useState(false)
+    const [checkKorea,setCheckKorea] = React.useState(false)
+    const [checkChina,setCheckChina] = React.useState(false)
+
+    const buttonReset = () =>{
+        setCheckJapan(false)
+        setCheckKorea(false)
+        setCheckChina(false)
+        
+    }
+
   return (
     <div className="sortBar">
                     <div className="sortBar_item">
@@ -40,27 +53,32 @@ function SortBar({items}) {
                         <div className="text">Страна</div>
                         <div className="check">
                             <div className="check_item">
-                                <input type="checkbox" id="Japan" name="Japan"/>
+                                <input type="checkbox" id="Japan" className='japan' checked={checkJapan} onClick={()=>setCheckJapan(!checkJapan)} />
                                 <label for="Japan">Япония</label>
                             </div>
                             <div className="check_item">
-                                <input type="checkbox" id="Korea" name="Korea"/>
+                                <input type="checkbox" id="Korea"  lassName='Korea' checked={checkKorea} onClick={()=>setCheckKorea(!checkKorea)}/>
                                 <label for="Korea">Корея</label>
                             </div>
                             <div className="check_item">
-                                <input type="checkbox" id="Китай" name="Китай"/>
-                                <label for="Китай">Китай</label>
+                                <input type="checkbox" id="China" lassName='China' checked={checkChina} onClick={()=>setCheckChina(!checkChina)}/>
+                                <label for="China">Китай</label> 
+
                             </div>
+                            {/* {
+                                country.map((name,index)=>
+                                    <div key = {`${name}_${index}`}className="check_item">
+                                        <input type="checkbox" id={name} className={name} checked={index === checkJapan} onClick={()=>setCheckJapan(index)} />
+                                        <label for={name}>{name}</label>
+                                    </div>
+                                )
+                            } */}
                         </div>
                     </div>
-                    {/* <div class="sortBar_item old">
-                        <div class="text">Год издания</div>
-                        <button class="btn_drop">за все время</button>
-                    </div> */}
 
                 <div className="navigat">   
                         <button className="btn show">Показать</button>
-                        <button className="btn reset">Сбросить</button>
+                        <button onClick={buttonReset} className="btn reset">Сбросить</button>
                 </div>
 
             </div>

@@ -1,14 +1,15 @@
 import React from 'react'
 import bookmark from "../assets/icons/mark.svg"
 
-function BookMark({items}) {
+function BookMark() {
 
+const category = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
 
     const [visibleMark , setVisibleMark] = React.useState(false)
     const MarkRef = React.useRef();
     const [activeMark, setActiveMark] = React.useState()
     
-    const activeNameMark = items[activeMark] // предмет[0]
+    const activeNameMark = category[activeMark] // предмет[0]
 
 
     const switchActive = (index) =>{
@@ -37,19 +38,22 @@ function BookMark({items}) {
 
     
     <div className="book-dropdown">
-        <button ref = {MarkRef} onClick={taggleMark} className="mark"><img src={bookmark} alt="mark"></img>{activeNameMark}</button>
+        <button ref = {MarkRef} onClick={taggleMark} className="mark">
+            <img src={bookmark} alt="mark"></img>{activeNameMark === undefined ? "Добавить в": activeNameMark}
+        </button>
+
             {visibleMark && (<ul className="dropdown-ul">
                 {
-                items && items.map((name,index)=>
-                
-                <li onClick={()=>switchActive(index)} 
-                key={`${name}_${index}`} 
-
+                category.map((name,index)=>
+                <li key={`${name}_${index}`} 
+                onClick={()=>switchActive(index)} 
+        
                 className={activeMark === index ? 'dropdown-ul__item dropdown-ul__item_active': "dropdown-ul__item"}>
 
                 {name}
                 </li>)
                 }
+                
             </ul>
             )}
     </div>

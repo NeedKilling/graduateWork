@@ -36,7 +36,7 @@ export default function SliderBig ({items}) {
         <Slider {...settings}>
             {
                 items.map(obj => (
-                    <a href="#" className="slider_book">
+                    <a href="#" key ={obj.id}className="slider_book">
                         <div className="slider_book_img"><img src={obj.imageUrl}  alt="book"></img></div>
                         <div className="slider_book_name">{obj.name}</div>
                         <div className="slider_book_subName">{obj.subName}</div>
