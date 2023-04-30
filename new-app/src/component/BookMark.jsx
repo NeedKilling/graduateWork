@@ -14,6 +14,7 @@ const category = ["Читаю","В планах","Прочитано","Люби�
 
     const switchActive = (index) =>{
         setActiveMark(index)
+        
     }
 
         const taggleMark = () => {
