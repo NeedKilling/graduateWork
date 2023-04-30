@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-
-import testslider01 from "../../assets/img/main.png"
-import testslider from "../../assets/img/slider_book.png"
+import { Link } from "react-router-dom";
 
 export default function SliderBig ({items}) {
     const settings = {
@@ -35,13 +33,15 @@ export default function SliderBig ({items}) {
         <div className="slider">
         <Slider {...settings}>
             {
-                items.map(obj => (
-                    <a href="#" key ={obj.id}className="slider_book">
-                        <div className="slider_book_img"><img src={obj.imageUrl}  alt="book"></img></div>
-                        <div className="slider_book_name">{obj.name}</div>
-                        <div className="slider_book_subName">{obj.subName}</div>
-                        
-                    </a>
+                items && items.map(obj => (
+                   <Link key ={obj.id} to = {`/db.json/${obj.id}`}>
+                        <a href="#" className="slider_book">
+                            <div className="slider_book_img"><img src={obj.imageUrl}  alt="book"></img></div>
+                            <div className="slider_book_name">{obj.name}</div>
+                            <div className="slider_book_subName">{obj.subName}</div>
+                            
+                        </a>
+                   </Link>
                 ))
             }
            
