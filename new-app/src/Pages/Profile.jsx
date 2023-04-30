@@ -2,13 +2,15 @@
 import React from 'react';
 import {Component} from 'react';
 import Categorias from '../component/Categorias';
-
+import { useSelector,useDispatch } from 'react-redux';
 import profile_image from "../assets/icons/profile_big.svg"
 import profile_back from "../assets/img/profile_back.jpg"
-import testmin from "../assets/img/book.png"
-
+import BookProfile from '../component/BookBlock/BookProfile';
+import {setCategorias} from "../redux/actions/filtres"
 function Profile(){
-    
+    const dispatch = useDispatch();
+
+    const items = useSelector((state) => state.Books.items);
         return(
 
     <div class="profile">
@@ -22,7 +24,7 @@ function Profile(){
                     <a href="#" class="navBar_link">Настройки</a>
                 </div>
                <Categorias 
-            //    onClickItem = {(name)=>console.log(name)}
+               onClickItem = {(index)=>dispatch(setCategorias(index))}
                items={[
                 "Читаю",
                 "В планах",
@@ -33,48 +35,11 @@ function Profile(){
                
                />
                 <div class="content">
-                    <div class="content_item">
-                       <div class="img"><img src={testmin} alt="book"></img></div>
-                        <div class="text">
-                            <a href="#" class="name">Повелитель</a>
-                            <div class="subName">Overlord</div>
-                            <button class="continue">Продолжить</button>
-                        </div>
-                    </div>
-                    <div class="content_item">
-                       <div class="img"><img src={testmin} alt="book"></img></div>
-                        <div class="text">
-                            <div class="name">Повелитель</div>
-                            <div class="subName">Overlord</div>
-                            <button class="continue">Продолжить</button>
-                        </div>
-                    </div>
-                    <div class="content_item">
-                       <div class="img"><img src={testmin} alt="book"></img></div>
-                        <div class="text">
-                            <div class="name">Повелитель</div>
-                            <div class="subName">Overlord</div>
-                            <button class="continue">Продолжить</button>
-                        </div>
-                    </div>
-                    <div class="content_item">
-                       <div class="img"><img src={testmin} alt="book"></img></div>
-                        <div class="text">
-                            <div class="name">Повелитель</div>
-                            <div class="subName">Overlord</div>
-                            <button class="continue">Продолжить</button>
-                        </div>
-                    </div>
-                    <div class="content_item">
-                       <div class="img"><img src={testmin} alt="book"></img></div>
-                        <div class="text">
-                            <div class="name">Повелитель</div>
-                            <div class="subName">Overlord</div>
-                            <button class="continue">Продолжить</button>
-                        </div>
-                    </div>
-
-
+                   {
+                    items.map(obj=>(
+                        <BookProfile key = {obj.id} {...obj}/>
+                    ))
+                   }
                 </div>
             </div>
             

@@ -1,13 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux';
 import {BookMark,BookHome, SliderBig,SliderMin} from '../component';
-
+import { Link } from 'react-router-dom';
 import store from '../redux/store';
 
 
-function Home ({items}){
+function Home (){
     
-   console.log(store.getState())
+    const {items} = useSelector((state) => {
+        return {
+          items : state.Books.items,
+          sortBy: state.filtres.sortBy
+        };
+      });
         return(
             <div>
                 <div className="intro">
@@ -35,7 +40,8 @@ function Home ({items}){
             </div>
                 {
                     items.map(obj =>(
-                    <BookHome key = {obj.id} {...obj}  />
+                        
+                    <BookHome key = {obj.id} {...obj}/>
                     ))
                 }
                 

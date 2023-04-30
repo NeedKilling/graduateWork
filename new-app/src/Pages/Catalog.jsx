@@ -3,10 +3,16 @@
 import React from 'react';
 import {SortBar, Sort, BookBlock} from '../component';
 import BookCatalog from '../component/BookBlock/BookCatalog';
-import store from '../redux/store';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-function Catalog ({items}){
-        
+function Catalog (){
+    const {items} = useSelector((state) => {
+        return {
+          items : state.Books.items,
+          sortBy: state.filtres.sortBy
+        };
+      });
         return(
             <div>
                 
@@ -22,15 +28,16 @@ function Catalog ({items}){
             
             <div className="content"> 
                {
-                items.map(obj => (
+               
+               items.map(obj => (
                     // <BookBlock
                     // key = {obj.id} 
                     // name = {obj.name} 
                     // subName={obj.subName} 
                     // image = {obj.imageUrl}
-                    // />
-                    
-                    <BookCatalog key = {obj.id} {...obj}/>
+                    // />                  ${obj.subName.split(' ').join('-')}
+                    <Link key = {obj.id} to = {`/db.json/${obj.id}`} {...obj} >
+                    <BookCatalog key = {obj.id} {...obj}/></Link>
                     
                 ))
                } 
