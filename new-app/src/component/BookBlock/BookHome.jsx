@@ -1,16 +1,16 @@
 import React from 'react'
 import ProtoTypes from "prop-types"
-
+import { Link } from 'react-router-dom'
 import {BookMark} from '../../component'
-import { useNavigate } from 'react-router-dom'
 import star from "../../assets/icons/star.svg"
+import { useDispatch } from 'react-redux'
+import { setCategorias } from '../../redux/actions/filtres'
 
-function BookHome({name,imageUrl,subName,rating,description}) {
-    const navigate = useNavigate()
-    const clickLink =()=>{
-        
-        navigate(`/${(subName)}`)
-    }
+
+function BookHome({id,name,imageUrl,subName,rating,description}) {
+    
+    
+
   return (
     <div className="book">
         <div className="book-item">
@@ -19,14 +19,19 @@ function BookHome({name,imageUrl,subName,rating,description}) {
                 <p className="rating-text">{rating}</p>
             </div>
             <div className="book-item__top">
-                <div className="book-item__left"><img src={imageUrl} alt="book"></img></div>
-                <div onClick={clickLink} className="book-item__right"><div className="right-title">{name}<br/><span>{subName}</span></div>
+                <div className="book-item__left"><Link to = {`/db.json/${id}`}><img src={imageUrl} alt="book"></img></Link></div>
+                <div className="book-item__right">
+                    <div className="right-title"><Link  to = {`/db.json/${id}`}>
+                        <div className = "right-title_name">{name}</div>
+                        </Link><div className='right-title_subName'>{subName}</div>
+                    </div>
                     <div className="right-description">{description}</div>
+                    
                 </div>
             </div>
             <div className="book-item__bottom">
                 <a href="#" className="read">Читать</a>
-                <BookMark/>
+                <BookMark />
             </div>
         </div>
     </div>
