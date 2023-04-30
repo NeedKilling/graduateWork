@@ -1,17 +1,12 @@
-
 @keyframes shake
     0% 
         transform: translate(0, 0)
-
     25% 
         transform: translate(2px, -2px)
-
     50% 
         transform: translate(-2px, 2px)
-
     75% 
         transform: translate(2px, 2px)
-
     100% 
         transform: translate(-2px, -2px)
 *
@@ -27,7 +22,6 @@ html,
 body
     height: 100%
     
-
 .wrap
     display: flex
     flex-direction: column
@@ -348,18 +342,20 @@ header
             &__right
                 .right-title
                     margin-right: 50px
-                    font-weight: 300
-                    font-size: 24px
-                    line-height: 33px
-                    color: #FFFFFF
-                    transition: all .2s ease
-                    span
+                    &_name
+                        font-weight: 300
+                        font-size: 24px
+                        line-height: 33px
+                        color: #FFFFFF
+                        transition: all .2s ease
+                        &:hover
+                            color: #928D8D
+                    &_subName
                         word-break: break-all   
-                        font-size: 20px
+                        font-size: 18px
                         color: #928D8D
 
-                    &:hover
-                        color: #928D8D
+                    
                 .right-description
                     width: 557px
                     //word-break: break-all
@@ -657,6 +653,8 @@ header
             background-color: #202020
             .img
                 display: inline-block
+                img
+                    border-radius: 10px 
             .text
                 padding: 10px 0 0 10px
                 .name
@@ -773,6 +771,7 @@ header
             position: relative
             width: 155px
             height: 218px
+            cursor: pointer
             img
                 width: 155px
                 height: 218px
@@ -1026,7 +1025,7 @@ header
 
 .subscription
     margin-top: 35px
-    padding-bottom: 40%
+    padding-bottom: 20%
     .tarif
         background-color: #202020
         padding: 20px 29px 35px 29px
@@ -1173,3 +1172,192 @@ header
                 td:last-of-type 
                     border-bottom-right-radius: 15px
             
+.Page
+    position: relative
+    margin: 250px 0 120px 0
+    .bookPage
+        z-index: 1
+        .background
+            position: absolute
+            top: -250px
+            left: 0
+            right: 0
+            background-size: cover
+            background-position: 50%
+            background-repeat: no-repeat
+            height: 320px
+            opacity: 0.2
+            z-index: -1
+            &:before
+                content: ''
+                background-color: rgba(0,0,0,.8)
+            &:after
+                content: ""
+                display: block
+                height: 150px
+                position: absolute
+                left: 0
+                right: 0
+                bottom: -1px
+                z-index: 3
+                background: -webkit-gradient(linear,left bottom,left top,from(#181818),to(transparent))
+                background: linear-gradient(0deg,#181818,transparent)
+                
+            
+
+
+        .wrapper
+            display: flex
+            justify-content: space-between
+            gap: 10px
+        &_right
+            img
+                width: 220px
+                height: 292px
+                border-radius: 10px 
+        &_dropdown
+            position: relative
+            font-weight: 400
+            font-size: 18px
+            line-height: 16px
+            color: #FFFFFF
+            .dropdown_ul
+                position: absolute
+                border-radius: 3px
+                top: 40px
+                left: 0
+                width: 220px
+                background-color: #202020
+                transition: all .2s ease
+                &__item
+                    padding: 10px 0 10px 15px
+                    border-radius: 3px
+                    cursor: pointer
+                    &:hover
+                        background: #303030
+
+                    
+            .mark
+                margin-top: 5px
+                display: flex
+                justify-content: flex-end
+                align-items: center
+                width: 220px
+                height: 34px    
+                border: 2px solid #928D8D
+                border-radius: 10px
+                cursor: pointer
+                img
+                    margin: 0 9px 0 25px
+                    width: 24px
+                    height: 24px
+            .read
+                background: #03711B
+                border: none
+            .inPlan
+                background-color: #2e51d1
+                border: none
+            .viewed
+                background: #5976a6
+                border: none
+            .favorite
+                background-color: #d52a3d
+                border: none
+            .abandoned
+                background: #8e48b7
+                border: none
+            
+
+        &_link
+            margin-top: 10px
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 220px
+            height: 34px    
+            border: 2px solid #928D8D
+            border-radius: 10px
+            color: #928D8D
+            font-weight: 400
+            font-size: 18px
+            line-height: 16px
+            transition: all .2s ease
+            cursor: pointer
+            &:hover
+                background-color: #928D8D
+                color: #fff
+        
+        &_left
+            width: 916px
+            .head
+                display: flex
+                justify-content: space-between
+                background: #202020
+                border-radius: 10px
+                padding: 11px 20px 11px 20px
+            .title
+                display: flex
+                .name
+                    font-weight: 300
+                    font-size: 20px
+                    line-height: 23px
+                    color: #FFFFFF
+                .subName
+                    position: relative
+                    bottom: -3px
+                    font-weight: 300
+                    font-size: 16px
+                    line-height: 19px
+                    color: #928D8D
+            .rating
+                    display: flex
+                    top: 14px
+                    right: 10px
+                    img
+                        position: relative
+                        top:2px
+                        width: 20px
+                        height: 20px
+                    .number
+                        margin-left: 5px
+                        font-weight: 300
+                        font-size: 20px
+                        line-height: 27px
+                        color: #FFFFFF
+                
+            .content
+                position: relative
+                padding: 30px 57px 30px 57px
+                margin-top: 10px
+                background: #202020
+                border-radius: 10px
+                .wrapper
+                    display: flex
+                    justify-content: flex-start
+                    gap: 95px
+                .block
+                    display: flex
+                    flex-direction: column
+                    gap: 30px
+                &_item
+                    
+                    font-weight: 300
+                    font-size: 16px
+                    line-height: 19px
+                    text-align: justify
+                    color: #FFFFFF
+                    &::after
+                        margin: 35px 57px 0 57px
+                        content: ""
+                        position: absolute
+                        width: 802px
+                        height: 1px
+                        left: 0
+                        background-color:  #928D8D
+                .description
+                    margin-top: 30px
+                    font-weight: 300
+                    font-size: 16px
+                    line-height: 19px
+                    text-align: justify
+                    color: #FFFFFF
