@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom'
 
 
 function BookCatalog({name,subName,imageUrl}) {
-  const navigate = useNavigate()
-  const clickLink =()=>{
+  // const navigate = useNavigate()
+  // const clickLink =()=>{
       
-      navigate(`/${subName.split(' ').join('-')}`)
-  }
+  //     navigate(`/${subName.split(' ').join('-')}`)
+  // }
   return (
-    <div onClick = {clickLink} className="book">
+    <div className="book">
         <img src={imageUrl} alt=""></img>
         <div className="book_title">
             <div className="book_name">{name}</div>
