@@ -3,6 +3,7 @@
       {
         "id": 0,
         "imageUrl": "https://ranobes.com/uploads/posts/2020-07/1594613837_overlord.webp",
+        "backgroundImage":"https://playprint.ru/images/catalog/categories/category-overlord-bg.jpg",
         "name": "Повелитель",
         "subName":"Overlord",
         "datarelize": 2010,
@@ -10,12 +11,16 @@
         "genre": ["фентези","ужасы"],
         "rating": 5,
         "country":"Япония",
+        "author": "MARUYAMA Kugane",
+        "artist": "So Bin",
+        "publisher": "Kadokawa Shoten",
         "description": "Объявили, что вскоре будут отключены все сервера, и онлайновая игра «Иггдрасиль» навсегда закроется. Но почему-то, после того, как сервер закрылся, игрок Момонга, оставшийся в сети в последний день, не смог выйти, а НИП начали подавать признаки разума. Обычный, любящий играть в игры парень, похоже, вместе со своей гильдией был перенесен в альтернативный мир."
         
       },
       {
         "id": 1,
         "imageUrl": "https://ranobes.com/uploads/posts/2020-04/1588143342_everyone-else-is-a-returnee.jpg",
+        "backgroundImage":"https://gamerwall.pro/uploads/posts/2022-03/1646367718_6-gamerwall-pro-p-kosmicheskie-zdaniya-budushchego-krasivie-8.jpg",
         "name": "Каждый возвращается домой",
         "subName":"Everyone Else is a Returnee",
         "datarelize": 2016,
@@ -23,12 +28,16 @@
         "genre": ["фентези","боевик"],
         "rating": 5,
         "country":"Корея",
+        "author": "Toika",
+        "artist": "-",
+        "publisher": "Intime",
         "description":"Его забыли взять на пикник в младшей школе. Про него забыли при поездке в лагерь, в средней школе. Про него забыли при поездке в старшей школе. Он наконец стал студентом Университета, и что же? Теперь он был забыт всем человечеством? ЮИльХан, кто остается на Земле один, после того, как всё человечество отправляется в другие миры на обучение. Его история начнется, когда человечество вернется, и случится Большой Катаклизм!"
         
       },
       {
         "id": 2,
         "imageUrl": "https://cover.imglib.info/uploads/cover/solo-leveling/cover/ENpNDMytyJ8B_250x350.jpg",
+        "backgroundImage":"https://sgimage.netmarble.com/images/netmarble/sololv/20230313/r20w1678676611229.jpg",
         "name": "Поднятие уровня в одиночку",
         "subName":"I alone level up",
         "datarelize": 2016,
@@ -36,11 +45,15 @@
         "genre": ["фентези","боевик"],
         "rating": 5,
         "country":"Корея",
+        "author": "Chugong Jang Sung-lak",
+        "artist": "GEE So-Lyung",
+        "publisher": "D&C Media Kakao",
         "description": "Десять лет назад, после того, как «Врата», соединившие реальный мир с параллельным, открылись, некоторые из людей получили силу охотиться на монстров внутри «Врат». Они известны как «Охотники». Однако не все Охотники сильные. Меня зовут Сонг Джин-Ву, охотник E-ранга."
       },
       {
         "id": 3,
         "imageUrl": "https://ranobes.com/uploads/posts/2019-01/1546588389_dungeon-defense.jpg",
+        "backgroundImage":"https://avatars.dzeninfra.ru/get-zen_doc/230233/pub_5c0a88e58f486600b0859cc0_5c0a911a137b3000a988cce8/scale_1200",
         "name": "Защита Подземелья",
         "subName":"Dungeon Defense",
         "datarelize": 2016,
@@ -48,11 +61,15 @@
         "genre": ["фентези","драма","романтика"],
         "rating": 5,
         "country":"Корея",
+        "author": "Yoo Heonhwa",
+        "artist": "-",
+        "publisher": "Novel Engine",
         "description":"Когда-то я был «героем», который сразил 72 Владык Демонов игре Атака Подземелья и достиг всего, но после участия в подозрительном опросе, я оказался в игре, став слабейшим Владыкой Демонов, Данталианом. Имея только хорошо подвешенный язык и воспоминания о завоеваниях в качестве героя… Для того чтобы выжить, будучи Данталианом, я разорву этот мир на части."
       },
       {
         "id": 4,
         "imageUrl": "https://ranobes.com/uploads/posts/2020-02/1581763300_omniscient-readers-viewpoint.jpg",
+        "backgroundImage":"https://aminosart.ru/wp-content/uploads/2022/07/Tochka-zreniya-vsevedushhego-chitatelya.jpeg",
         "name": "Точка зрения Всеведущего читателя",
         "subName":"Omniscient Reader’s Viewpoint",
         "datarelize": 2018,
@@ -60,11 +77,15 @@
         "genre": ["фентези","драма","боевик","комедия"],  
         "rating": 5,
         "country":"Корея",
+        "author": "Sing-Shong",
+        "artist": "BLACK BOX",
+        "publisher": "Munpia Webnovel",
         "description":"Ким Докча — единственный читатель ежедневного романа под названием: «Три способа выжить в разрушенном мире» с более чем 3k глав. Этот роман заканчивается последней главой, с благодарностью и последними словами: «Тот факт, что вы читаете это, означает, что вы выживете». На следующий день Ким Докча получает от автора на телефон копию романа, после чего содержание романа становится реальным. И с этого момента начинается игра со смертью, где каждый должен сделать все, чтобы выжить."
       },
       {
         "id": 5,
         "imageUrl": "https://cover.imglib.info/uploads/cover/second-life-ranker-novel/cover/AkQjHFTFLuCM_250x350.jpg",
+        "backgroundImage":"https://w.forfun.com/fetch/bf/bfd21ace0ac39b64eeb8368da17abe2c.jpeg",
         "name": "Ранкер который живет второй раз",
         "subName":"Second Life Ranker",
         "datarelize": 2017,
@@ -72,11 +93,15 @@
         "genre": ["фентези","романтика","боевик"],  
         "rating": 5,
         "country":"Корея",
+        "author": "Nong Nong",
+        "artist": "-",
+        "publisher": "Wuxiaworld",
         "description":"У Ён У был брат-близнец, который исчез пять лет назад. Однажды ему пришла посылка — часы его брата. В них Ён У обнаружил дневник брата… И он начинался со слов «Если ты это читаешь, то я скорее всего уже мёртв…». Обелиск, Башня Бога Солнца, мир, где пересекаются несколько вселенных и измерений. В этом мире его брат стал жертвой предательства во время восхождения на башню. Узнав правду, Ён У решил взобраться на башню вместе с дневником своего брата."
       },
       {
         "id": 6,
         "imageUrl": "https://ranobes.com/uploads/posts/2020-06/1591271225_fff-class-trashero.jpg",
+        "backgroundImage":"https://avatars.dzeninfra.ru/get-zen_doc/1336031/pub_5c0a88e58f486600b0859cc0_5c0a90c177e7fc00aaf7aab5/scale_1200",
         "name": "Ублюдок FFF Ранга",
         "subName":"FFF-Class Trashero",
         "datarelize": 2018,
@@ -84,11 +109,15 @@
         "genre": ["фентези","боевик","комедия"],  
         "rating": 5,
         "country":"Корея",
+        "author": "Farnar",
+        "artist": "LatDe Rukawa",
+        "publisher": "GCK Books",
         "description":"Главный герой добрался до замка Владыки Демонов и сразился с его хозяином, по пути избавившись от всех своих товарищей. Он лишь хотел быстрее вернуться на Землю, а на этот мир и его жителей ему было плевать. Но вместо долгожданного возвращения герой узнаёт, что получил F за свою личность, и поэтому ему придётся начать всё заново."
       },
       {
         "id": 7,
         "imageUrl": "https://cover.imglib.info/uploads/cover/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-novel/cover/8a6LQQwiofC0_250x350.jpg",
+        "backgroundImage":"https://avatars.dzeninfra.ru/get-zen_doc/3414159/pub_60e915430f1e1b2a8cbbf717_60e9164ca83d1f6b7338ac5b/scale_1200",
         "name": "Добро пожаловать в класс превосходства",
         "subName":"Classroom of the Elite",
         "datarelize": 2015,
@@ -96,11 +125,15 @@
         "genre": ["драма","романтика"],  
         "rating": 5,
         "country":"Япония",
+        "author": "KINUGASA Shougo",
+        "artist": "TOMOSE Shunsaku",
+        "publisher": "Media Factory Seven Seas Entertainment",
         "description":"Старшая школа Коудо Икусей — это престижное учебное заведение с самыми современными удобствами, после которой практически каждый её выпускник без проблем поступает в университет или находит работу. Ученики этой школы позволено носить любую причёску и брать любые личные вещи. Кодо Икусей — это настоящий рай среди школ, но правда в том, что расположение тут получают лишь самые выдающиеся ученики. Главный герой — Киётака Аянокоджи — учится в классе D, куда отправляют лишь самых «отсталых» учеников. По некоторым обстоятельствам, Киётака был невнимателен на вступительном экзамене, из-за чего и попал в этот класс. Но всё меняется, когда он встречает двух своих новых одноклассниц — Сузуне Хорикиту и Кикё Кушиду."
       },
       {
         "id": 8,
         "imageUrl": "https://cover.imglib.info/uploads/cover/prime-hunter/cover/EBDMNHW0GDAl_250x350.jpg",
+        "backgroundImage":"https://www.meme-arsenal.com/memes/ca0a8a0d34d8646579d585484c521892.jpg",
         "name": "Мастер-охотник Kей",
         "subName":"Master Hunter K",
         "datarelize": 2016,
@@ -108,11 +141,15 @@
         "genre": ["фентези","боевик"],  
         "rating": 5,
         "country":"Корея",
+        "author": "Peulom Hel",
+        "artist": "Starwars Coffee",
+        "publisher": "Munpia",
         "description":"Чтобы доказать ценность своего вида собственными силами, без какого-либо предупреждения каждый мужчина, женщина и ребёнок был телепортирован для бесконечной череды битв. Неспособность уничтожить каждую цель означает необходимость очищения человечества, примерно таковы утверждения Оператора.Но если это правда, тогда почему же Кея отправили обратно в прошлое?"
       },
       {
         "id": 9,
         "imageUrl": "https://cover.imglib.info/uploads/cover/kono-subarashii-sekai-ni-shukufuku-wo/cover/JRbWBNqUbkRW_250x350.jpg",
+        "backgroundImage":"https://wallpaperaccess.com/full/3824026.jpg",
         "name": "Да будет благословен этот прекрасный мир!",
         "subName":"God's Blessing on This Wonderful World!",
         "datarelize": 2013,
@@ -120,11 +157,15 @@
         "genre": ["фентези","комедия"],  
         "rating": 5,
         "country":"Япония",
+        "author": "Natsume Akatsuki",
+        "artist": "Kurone Mishima",
+        "publisher": "Kadokawa Shoten XL Media Yen Press",
         "description":"Казума Сато, старшеклассник, геймер и затворник, умер в обычный день, совершив единственный в своей жизни подвиг. Он приходит в себя в чистилище, где его приветствует красивая, но грубая богиня Аква.У умерших не так много дальнейших путей, но Казуме везёт — среди вариантов можно выбрать новую жизнь в РПГшном мире, да ещё и взяв с собой какую-нибудь читерскую способность или возможность. Изрядно поломав голову, он выбирает… Акву?"
       },
       {
         "id": 10,
         "imageUrl": "https://ranobes.com/uploads/posts/2019-05/1557592396_possessing-nothing.jpg",
+        "backgroundImage":"https://chakiris.club/uploads/posts/2022-03/1646167943_1-chakiris-club-p-srednevekovii-gorod-fentezi-art-fentezi-ob-1.jpg",
         "name": "Владея Ничем",
         "subName":"Possessing Nothing",
         "datarelize": 2017,
@@ -132,11 +173,15 @@
         "genre": ["фентези","боевик"],  
         "rating": 5,
         "country":"Корея",
+        "author": "Mockma",
+        "artist": "-",
+        "publisher": "Munpia",
         "description":"Призванный Ли Сун Мин начав свой путь как Бесклассовый, владея ничем, стал C-ранговым наёмником. После 13 лет выживания на самом дне жестокого мира, любопытство приведет его в смерть, но миновав его он вернется в прошлое с знаниями от первой жизни. Быть может это его проклятие... или же удача?"
       },
       {
         "id": 11,
         "imageUrl": "https://cover.imglib.info/uploads/cover/moto-shougun-no-undead-knight-novel/cover/YrTYReBosqDz_250x350.jpg",
+        "backgroundImage":"https://wallpapers-fenix.eu/full/160516/075523150.jpg",
         "name": "Немёртвый бывший генерал",
         "subName":"Former General Is Undead Knight",
         "datarelize": 2017,
@@ -144,6 +189,9 @@
         "genre": ["фентези","боевик"],  
         "rating": 5,
         "country":"Япония",
+        "author": "Nekoko",
+        "artist": "Akira Banpai",
+        "publisher": "Shogakukan Syosetu",
         "description":"Ламбер — бывший генерал, живший во времена войн. Его правитель решил убить его, потому что он был слишком популярен среди народа и мог попробовать захватить власть. Спустя 200 лет его воскрешают в качестве нежити и он начинает познавать новый для себя мир."
       }
       
