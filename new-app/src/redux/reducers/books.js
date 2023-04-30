@@ -1,5 +1,6 @@
 const initialState = {
-   items : []
+   items : [],
+   isLoaded : false
 }
 
 const books = (state = initialState,action) => {
@@ -8,8 +9,8 @@ const books = (state = initialState,action) => {
             ...state,
             items: action.payload,
         };
-        return state;
     }
+    return state;
 }
 
 export default books; 
