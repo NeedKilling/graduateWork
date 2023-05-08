@@ -13,6 +13,9 @@ function Catalog (){
           sortBy: state.filtres.sortBy
         };
       });
+
+    const SortName = [{name: "популярности",type:'popular'},{name: "алфавиту",type: "alphabet"},{name: "дате релиза",type: "data"}]
+      
         return(
             <div>
                 
@@ -22,7 +25,7 @@ function Catalog (){
         <div className="wrapper">            
             <div className="catalog_head">
                 <div className="title">Каталог</div>
-                <Sort items={[{name: "популярности",type:'popular'},{name: "алфавиту",type: "alphabet"},{name: "дате релиза",type: "data"}]} />
+                <Sort items={SortName} />
             </div>
             
             
@@ -30,15 +33,8 @@ function Catalog (){
                {
                
                items.map(obj => (
-                    // <BookBlock
-                    // key = {obj.id} 
-                    // name = {obj.name} 
-                    // subName={obj.subName} 
-                    // image = {obj.imageUrl}
-                    // />                  ${obj.subName.split(' ').join('-')}
-                    <Link key = {obj.id} to = {`/db.json/${obj.id}`} {...obj} >
+                    <Link key = {obj.id} to = {`/Book/${obj.id}`} {...obj} >
                     <BookCatalog key = {obj.id} {...obj}/></Link>
-                    
                 ))
                } 
                
