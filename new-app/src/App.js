@@ -13,8 +13,8 @@ function App(){
   const dispatch = useDispatch();
  
   React.useEffect(()=>{
-    axios.get("http://localhost:3000/db.json").then(({data}) =>{
-    dispatch(setBooks(data.book))
+    axios.get("http://localhost:3001/book").then(({data}) =>{
+    dispatch(setBooks(data))
   });
   },[]);
 
@@ -25,14 +25,12 @@ function App(){
       
       
         <Routes>
-            <Route  path="/" Component={Home}/> {/*<Component items={bookBlock}/>*/}
-            <Route  path="/Catalog" Component={Catalog} exact/>
-            <Route  path="/Profile" Component={Profile}/>
-            <Route  path="/Popular" Component={Popular}/>
-            <Route  path="/Subscription" Component={Subscription}/>
-            {/* <Route path='/BookPage/:id' Component={BookPage}/> */}
-            <Route path='/db.json/:id' Component={BookPage}/>
-            
+            <Route  path="/" element={<Home/>}/> {/*<Component items={bookBlock}/>*/}
+            <Route  path="/Catalog" element={<Catalog/>} exact/>
+            <Route  path="/Profile" element={<Profile/>}/>
+            <Route  path="/Popular" element={<Popular/>}/>
+            <Route  path="/Subscription" element={<Subscription/>}/>
+            <Route path='/Book/:id' element={<BookPage/>}/>
         </Routes>
       
       
