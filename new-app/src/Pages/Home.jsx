@@ -45,7 +45,7 @@ function Home (){
                     ))
                 }
                 
-                    <button className="more">Загрузить еще...</button>
+                    {/* <button className="more">Загрузить еще...</button> */}
         </div>
     </div>
             </div>
