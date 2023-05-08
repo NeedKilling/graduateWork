@@ -7,9 +7,9 @@ import { setBooks } from '../redux/actions/books';
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 
-
+import {BookMarkInPage} from '../component'
 import star from "../assets/icons/star.svg"
-import drop from "../assets/icons/drop.svg"
+
 
 function BookPage() {
     const items = useSelector((state) => state.Books.items);
@@ -33,17 +33,7 @@ function BookPage() {
                     <div className="bookPage_right">
                         <div className="bookPage_img"><img src={items[id].imageUrl} alt=""></img></div>
                         <div className="bookPage_link continue">Читать</div>
-                        <div className="bookPage_dropdown">
-                            <div className="mark">Добавить в<img src={drop} alt=""></img> </div>
-                            <ul className="dropdown_ul">
-                                <li className="dropdown_ul__item">Читаю</li>
-                                <li className="dropdown_ul__item">В планах</li>
-                                <li className="dropdown_ul__item">Прочитано</li>
-                                <li className="dropdown_ul__item">Любимое</li>
-                                <li className="dropdown_ul__item">Брошено</li>
-                            </ul>
-                        </div>
-                        
+                        <BookMarkInPage/>    
                     </div>
                     <div className="bookPage_left">
                         <div className="head">
