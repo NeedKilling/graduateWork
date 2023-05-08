@@ -19,9 +19,9 @@ function BookHome({id,name,imageUrl,subName,rating,description}) {
                 <p className="rating-text">{rating}</p>
             </div>
             <div className="book-item__top">
-                <div className="book-item__left"><Link to = {`/db.json/${id}`}><img src={imageUrl} alt="book"></img></Link></div>
+                <div className="book-item__left"><Link to = {`/Book/${id}`}><img src={imageUrl} alt="book"></img></Link></div>
                 <div className="book-item__right">
-                    <div className="right-title"><Link  to = {`/db.json/${id}`}>
+                    <div className="right-title"><Link  to = {`/Book/${id}`}>
                         <div className = "right-title_name">{name}</div>
                         </Link><div className='right-title_subName'>{subName}</div>
                     </div>
