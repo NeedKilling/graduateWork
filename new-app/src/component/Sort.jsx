@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState, useRef } from 'react';
 
-function Sort({items}) {
+const Sort = React.memo(function Sort({items}) {
 
     const [visibleSort , setvisibleSort] = useState(false)
     const sortRef = useRef();
@@ -52,7 +52,7 @@ function Sort({items}) {
         </div>
   )
 }
-
+)
 
 
 export default Sort;
