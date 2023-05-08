@@ -11,6 +11,13 @@ function Profile(){
     const dispatch = useDispatch();
 
     const items = useSelector((state) => state.Books.items);
+
+    const onSelectCategorias = index => {
+        dispatch(setCategorias(index));
+    };
+
+    const categoriasName = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
+
         return(
 
     <div class="profile">
@@ -24,14 +31,8 @@ function Profile(){
                     <a href="#" class="navBar_link">Настройки</a>
                 </div>
                <Categorias 
-               onClickItem = {(index)=>dispatch(setCategorias(index))}
-               items={[
-                "Читаю",
-                "В планах",
-                "Прочитано",
-                "Любимое",
-                "Брошено"
-               ]}
+               onClickItem = {onSelectCategorias}
+               items={categoriasName}
                
                />
                 <div class="content">
