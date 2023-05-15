@@ -31,7 +31,7 @@ function BookHome({id,name,imageUrl,subName,rating,description}) {
             </div>
             <div className="book-item__bottom">
                 <a href="#" className="read">Читать</a>
-                <BookMark />
+                {/* <BookMark /> */}
             </div>
         </div>
     </div>
