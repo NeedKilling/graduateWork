@@ -1,18 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import {BookMark,BookHome, SliderBig,SliderMin} from '../component';
 import { Link } from 'react-router-dom';
 import store from '../redux/store';
-
+import {fetchBooks} from '../redux/actions/books';
 
 function Home (){
-    
+    const dispatch = useDispatch();
+ 
     const {items} = useSelector((state) => {
         return {
           items : state.Books.items,
           sortBy: state.filtres.sortBy
         };
       });
+      
+
         return(
             <div>
                 <div className="intro">
@@ -39,21 +42,14 @@ function Home (){
                 <div className="line"></div>
             </div>
                 {
-                    items.map(obj =>(
-                        
+                    items.map(obj =>(    
                     <BookHome key = {obj.id} {...obj}/>
                     ))
                 }
-                
-                    {/* <button className="more">Загрузить еще...</button> */}
         </div>
     </div>
             </div>
         )
-    
 }
-
-
-
 export default Home;
 
