@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import { setBooks } from '../redux/actions/books';
 
@@ -13,15 +13,17 @@ import star from "../assets/icons/star.svg"
 
 function BookPage() {
     const items = useSelector((state) => state.Books.items);
-    //  console.log(items[0].name)
     const {id} = useParams()
-    const dispatch = useDispatch();
+    const {name} = useParams()
+    // const dispatch = useDispatch();
 
-    useEffect(()=>{
-        axios.get(`http://localhost:3000/db.json/${id}`).then(({data}) =>{
-        dispatch(setBooks(data.book))
-        },[id])})
-    console.log(items)
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:3000/db.json/${id}`).then((data) =>{
+    //     setDescription(data)
+    // },[id])})   
+
+    // console.log(items)
+    
   return (
 
     <div>
@@ -32,7 +34,7 @@ function BookPage() {
                 <div className="wrapper">
                     <div className="bookPage_right">
                         <div className="bookPage_img"><img src={items[id].imageUrl} alt=""></img></div>
-                        <div className="bookPage_link continue">Читать</div>
+                        <Link to={`/Book/${id}/${name}`} className="bookPage_link continue">Читать</Link>
                         <BookMarkInPage/>    
                     </div>
                     <div className="bookPage_left">
@@ -43,7 +45,7 @@ function BookPage() {
                             </div>
                             <div className="rating">
                                 <img src={star} alt=""></img>
-                                <div className="number">5</div>
+                                <div className="number">{items[id].rating}</div>
                             </div>
                         </div>
                         <div className="content">
@@ -59,7 +61,8 @@ function BookPage() {
                             <div className="block">
                                     <div className="content_item">{items[id].datarelize}</div>
                                     <div className="content_item">{items[id].country}</div>
-                                    <div className="content_item">{items[id].genre}</div>
+                                    <div className="content_item">{`${items[id].genre}`}</div>
+                                    
                                     <div className="content_item">{items[id].author}</div>
                                     <div className="content_item">{items[id].artist}</div>
                                     <div className="content_item">{items[id].publisher}</div>
