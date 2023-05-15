@@ -1,8 +1,8 @@
 
 
-export const setSortBy = (value)=>({
+export const setSortBy = ({type,order})=>({
     type: "SET_SORT_BY",
-    payload : value,
+    payload : {type,order},
 
 });
 export const setCategorias = (value)=>({
