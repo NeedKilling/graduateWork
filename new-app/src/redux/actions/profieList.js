@@ -1,4 +1,10 @@
+import axios from 'axios'
 
+export const fetchBooks = () => (dispatch)=>{
+    axios.get("http://localhost:3001/book").then(({data}) =>{
+    dispatch(setProfileCat(data));
+});
+};
 
 
 const setProfileCat = (items)=>({
