@@ -1,55 +1,61 @@
 
 
 import React from 'react';
-import {SortBar, Sort, BookBlock} from '../component';
+import {SortBar, Sort, LoadingCatalog} from '../component';
 import BookCatalog from '../component/BookBlock/BookCatalog';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchBooks, fetchBooksCatalog } from '../redux/actions/books';
+import {setSortBy} from "../redux/actions/filtres"
 
 function Catalog (){
-    const {items} = useSelector((state) => {
-        return {
-          items : state.Books.items,
-          sortBy: state.filtres.sortBy
-        };
-      });
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.Books.items)
+    const isLoaded = useSelector((state) => state.Books.isLoaded)
+    const {sortBy} = useSelector(({filtres}) => filtres);    
 
-    const SortName = [{name: "популярности",type:'popular'},{name: "алфавиту",type: "alphabet"},{name: "дате релиза",type: "data"}]
+
+    React.useEffect(()=>{
+        dispatch(fetchBooksCatalog(sortBy))
+    },[sortBy]);
+
+    const onClickSortType = React.useCallback((type) => {
+        dispatch(setSortBy(type));
+    },[]);
+
+    const SortName = [
+        {name: "рейтингу",type:'rating',order:'desc'},
+        {name: "алфавиту",type: "name", order:'asc'},
+        {name: "дате релиза(↗)",type: "datarelize",order:'desc'},
+        // {name: "дате релиза(↘)",type: "datarelize",order:'asc'}
+    ]
       
         return(
             <div>
-                
-    
 <div className="catalog">
     <div className="container">
         <div className="wrapper">            
             <div className="catalog_head">
                 <div className="title">Каталог</div>
-                <Sort items={SortName} />
+                <Sort activeSortType = {sortBy.type} items={SortName} onClickSortType={onClickSortType} />
             </div>
-            
-            
             <div className="content"> 
                {
-               
-               items.map(obj => (
+               isLoaded ? items.map(obj => (
                     <Link key = {obj.id} to = {`/Book/${obj.id}`} {...obj} >
-                    <BookCatalog key = {obj.id} {...obj}/></Link>
-                ))
+                    <BookCatalog key = {obj.id} isLoading = {true} {...obj}/></Link> 
+                )) : Array(15).fill(<LoadingCatalog/>)
                } 
-               
+              
             </div>
             <SortBar/>
         </div>
     </div>
-</div>
-            
-                
+</div>            
             </div>
         )
     
 }
-
 export default Catalog;
 
 
