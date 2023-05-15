@@ -2,11 +2,10 @@ import React,{ useState } from 'react'
 
 
 const Categorias = React.memo(
-  function Categorias ({items,onClickItem}){
-    const [activeState,setActiveState] = useState(null);
+  function Categorias ({activeCategorias,items,onClickItem}){
+    
     
     const selectState = (index) => {
-      setActiveState(index);
       onClickItem(index)
     }
   
@@ -15,7 +14,7 @@ const Categorias = React.memo(
            <ul class="profile_list">
   
               <li onClick = {() => selectState(null)} 
-              className={activeState === null ? 'item item_active' : 'item'}>Все</li>
+              className={activeCategorias === null ? 'item item_active' : 'item'}>Все</li>
               {
                 items && items.map((name,index)=><li 
   
@@ -23,7 +22,7 @@ const Categorias = React.memo(
   
                 key={`${name}_${index}`} 
   
-                className={activeState === index ? 'item item_active': 'item'}>{name}
+                className={activeCategorias === index ? 'item item_active': 'item'}>{name}
   
                 </li>)
               }
