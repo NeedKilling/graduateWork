@@ -1,20 +1,23 @@
 import React, { useEffect } from 'react'
 import { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-const Sort = React.memo(function Sort({items}) {
+const Sort = React.memo(function Sort({items,activeSortType,onClickSortType}) {
 
     const [visibleSort , setvisibleSort] = useState(false)
     const sortRef = useRef();
-    const [activeSort, setActiveSort] = useState(0)
+    // const [activeSort, setActiveSort] = useState(0)
     
-    const activeName = items[activeSort].name // предмет[0]
-
+    const activeName = items.find((obj) => obj.type === activeSortType).name // предмет[0]
+console.log(activeName)
 
     const switchActive = (index) =>{
-        setActiveSort(index)
+        if(onClickSortType){
+            onClickSortType(index)
+        }
     }
 
-        const taggleSort = () => {
+        const taggleSort = () => {            // показ/скрытие выпадающего меню
             setvisibleSort(!visibleSort)
         }
 
@@ -40,13 +43,15 @@ const Sort = React.memo(function Sort({items}) {
             </div>
             {visibleSort && (<div className="catalog_drop">
                 {
-                items && items.map((object,index)=><div onClick={()=>switchActive(index)} 
+                items && items.map((object,index) => 
+                
+                (<div onClick={()=>switchActive(object)} 
                 key={`${object.type}_${index}`} 
-                className={activeSort === index ? 'catalog_drop_item active': "catalog_drop_item"}>
+                className={activeSortType === object.type ? 'catalog_drop_item active': "catalog_drop_item"}>
 
                 {object.name}
                 </div>)
-                }
+)}
             </div>
             )}
         </div>
@@ -54,5 +59,14 @@ const Sort = React.memo(function Sort({items}) {
 }
 )
 
+Sort.propTypes = {
+    activeSortType: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onClickSortType: PropTypes.func.isRequired,
+  };
+
+Sort.defaultProps = {
+    items: [],
+}
 
 export default Sort;
