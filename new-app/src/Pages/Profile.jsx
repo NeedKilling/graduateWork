@@ -1,22 +1,32 @@
 
 import React from 'react';
-import {Component} from 'react';
 import Categorias from '../component/Categorias';
 import { useSelector,useDispatch } from 'react-redux';
 import profile_image from "../assets/icons/profile_big.svg"
 import profile_back from "../assets/img/profile_back.jpg"
 import BookProfile from '../component/BookBlock/BookProfile';
 import {setCategorias} from "../redux/actions/filtres"
+import { fetchBooksProfile } from '../redux/actions/books';
+import {  LoadingProfile } from '../component';
+
 function Profile(){
     const dispatch = useDispatch();
 
-    const items = useSelector((state) => state.Books.items);
+    const items = useSelector((state) => state.Books.items); //получение из редакса книг
+    const isLoaded = useSelector((state) => state.Books.isLoaded)
+    const {categorias} = useSelector(({filtres}) => filtres);//получение из редакса категорию
+    
 
-    const onSelectCategorias = index => {
+    const onSelectCategorias = React.useCallback((index) => {
         dispatch(setCategorias(index));
-    };
+    },[]);
 
-    const categoriasName = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
+        const categoriasName = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
+    
+    React.useEffect(()=>{                /// получение книг при изменеии категории  
+        dispatch(fetchBooksProfile(categorias))
+    },[categorias]);
+
 
         return(
 
@@ -30,17 +40,19 @@ function Profile(){
                     <a href="#" class="navBar_link">Списки</a>
                     <a href="#" class="navBar_link">Настройки</a>
                 </div>
-               <Categorias 
+               <Categorias
+               activeCategorias={categorias}
                onClickItem = {onSelectCategorias}
                items={categoriasName}
                
                />
                 <div class="content">
                    {
-                    items.map(obj=>(
+                    isLoaded ? items.map(obj=>(
                         <BookProfile key = {obj.id} {...obj}/>
-                    ))
+                    )) :  Array(15).fill(<LoadingProfile/>)
                    }
+                   
                 </div>
             </div>
             
