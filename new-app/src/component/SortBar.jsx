@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-function SortBar({items}) {
+function SortBar() {
+    const items = useSelector((state) => state.Books.items);
+
    const country = ["Япония","Корея","Китай"]
-
+///////////////////////////////////////////////////////////////
     const [checkJapan,setCheckJapan] = React.useState(false)
     const [checkKorea,setCheckKorea] = React.useState(false)
     const [checkChina,setCheckChina] = React.useState(false)
@@ -13,7 +16,25 @@ function SortBar({items}) {
         setCheckChina(false)
         
     }
+/////////////////////////////////////////////////////////////////////
+    // const products = items
+    
+    // const filters = {
+    //     country : ["Япония","Корея","Китай"],
+    //     genre: ['боевик']
+    // };
 
+    // function filter(array = [], filterVariable = {}){
+    //     const keys = Object.keys(filterVariable).filter(key => filterVariable.hasOwnProperty(key))
+    //     return array.filter(obj => {
+    //         const commonKeys = keys.filter(key => obj.hasOwnProperty(key))
+    //         return commonKeys.reduce((flag, key) => (flag && filterVariable[key].includes(obj[key])),true)
+    //     })
+    // }
+
+    // const filteredProducts = filter(products, filters);
+    // console.log(filteredProducts)
+//////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <div className="sortBar">
                     <div className="sortBar_item">
@@ -77,7 +98,6 @@ function SortBar({items}) {
                     </div>
 
                 <div className="navigat">   
-                        <button className="btn show">Показать</button>
                         <button onClick={buttonReset} className="btn reset">Сбросить</button>
                 </div>
 
