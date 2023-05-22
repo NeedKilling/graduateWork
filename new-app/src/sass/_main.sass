@@ -310,6 +310,7 @@ header
         display: flex
         justify-content: space-between
         align-items: center
+        margin-bottom: 20px
         .title
             font-weight: 400
             font-size: 24px
@@ -323,7 +324,7 @@ header
 
 
     .book
-        margin-top: 20px
+        margin-bottom: 20px
         .book-item
             border-radius: 10px
             padding: 10px
@@ -1026,8 +1027,7 @@ header
                 color: #928D8D
 
 .subscription
-    margin-top: 35px
-    padding-bottom: 20%
+    margin: 35px 0 35px 0
     .tarif
         background-color: #202020
         padding: 20px 29px 35px 29px
@@ -1374,3 +1374,66 @@ header
                     line-height: 19px
                     text-align: justify
                     color: #FFFFFF
+.TextInBook
+    margin: 50px 0 50px 0
+    .title
+        font-weight: 400
+        font-size: 40px
+        line-height: 16px
+        color: #FFFFFF     
+    .content
+        padding: 40px 20px 40px 20px    
+        display: block
+        font-size: 20px
+        word-break: break-word
+        
+        .text
+            font-weight: 300
+            color: #FFFFFF
+            margin-bottom: 20px
+            line-height: 2.6
+        p
+            display: inline-block
+
+.Pagination
+    position: absolute
+    bottom: 340px
+    left: 50%
+    transform: translateX(-50%)
+    font-weight: 300
+    font-size: 16px
+    width: 1146px
+    .block
+        // margin: 0 auto
+        // width: 1146px
+        display: flex
+        justify-content: space-between
+        .wrapper
+            display: flex
+            gap: 10px
+        &_number
+            color: #FFFFFF
+            border-radius: 10px
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 40px
+            height: 40px
+            background-color: #252525
+            font-size: 20px
+            transition: .3s all ease
+            border: 1px solid #353535
+            &:hover
+                background-color: #928D8D
+        .active
+            background-color: #928d8d
+        .arrow
+            width: 100px
+            font-size: 35px
+        .disabled
+            //visibility: hidden
+            background-color: #202020
+            color: #404040
+            pointer-events: none
+            
+
