@@ -3,18 +3,14 @@ import { useSelector,useDispatch } from 'react-redux';
 import {BookMark,BookHome, SliderBig,SliderMin} from '../component';
 import { Link } from 'react-router-dom';
 import store from '../redux/store';
-import {fetchBooks} from '../redux/actions/books';
+import {fetchBooks, fetchBooksHome} from '../redux/actions/books';
 
 function Home (){
     const dispatch = useDispatch();
- 
-    const {items} = useSelector((state) => {
-        return {
-          items : state.Books.items,
-          sortBy: state.filtres.sortBy
-        };
-      });
-      
+    const items = useSelector((state) => state.Books.items)
+      React.useEffect(()=>{
+        dispatch(fetchBooksHome())
+    },[]);
 
         return(
             <div>
