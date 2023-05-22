@@ -12,6 +12,8 @@ import {  LoadingProfile } from '../component';
 function Profile(){
     const dispatch = useDispatch();
 
+    const addedBooks = useSelector((state) => state.Books.addItems) //                        добавлении книг!!!!!!!!!!!!!!!!
+
     const items = useSelector((state) => state.Books.items); //получение из редакса книг
     const isLoaded = useSelector((state) => state.Books.isLoaded)
     const {categorias} = useSelector(({filtres}) => filtres);//получение из редакса категорию
