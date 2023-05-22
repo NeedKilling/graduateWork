@@ -30,7 +30,7 @@ function BookHome({id,name,imageUrl,subName,rating,description}) {
                 </div>
             </div>
             <div className="book-item__bottom">
-                <a href="#" className="read">Читать</a>
+                <Link to ={`/Book/${id}/${name}`} className="read">Читать</Link>
                 {/* <BookMark /> */}
             </div>
         </div>
