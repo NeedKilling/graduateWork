@@ -16,6 +16,16 @@ const books = (state = initialState,action) => {
                 ...state,
                 isLoaded: action.payload,
             };
+        case "ADD_BOOK":
+        return{
+            ...state,
+            addItems: action.payload,
+        };
+        case "SET_TEXT":
+        return{
+            ...state,
+            textItems: action.payload,
+        };
         default:
             return state
     }
