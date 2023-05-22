@@ -26,10 +26,34 @@ export const fetchBooksProfile = (categorias) => (dispatch)=>{
     dispatch(setBooks(data));
 });
 };
+export const fetchBooksHome = () => (dispatch)=>{
+    dispatch({
+        type: 'SET_LOADING',
+        payload: false,
+    })
+    axios.get(`http://localhost:3001/book`).then(({data}) =>{
+    dispatch(setBooks(data));
+});
+};
 
+
+
+
+/////
+export const addBookProfile = (payload) => (dispatch)=>{
+    console.log(payload)
+    dispatch({
+        type: 'ADD_BOOK',
+        payload,
+    })
+};
+//////
 export const setBooks= (items)=>({
     type: "SET_BOOKS",
     payload : items,
 
 });
+
+
+
 
