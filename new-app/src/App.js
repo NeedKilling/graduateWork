@@ -26,7 +26,9 @@ function App(){
             <Route  path="/Popular" element={<Popular/>}/>
             <Route  path="/Subscription" element={<Subscription/>}/>
             <Route path='/Book/:id' element={<BookPage/>}/>
-            <Route path='/Book/:id:name' element={<Text/>}/>
+            <Route path='/Book/:id/:name' element={<Text/>}/>
+            
+            
         </Routes>
       
       
