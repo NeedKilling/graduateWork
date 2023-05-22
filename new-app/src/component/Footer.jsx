@@ -29,11 +29,7 @@ function Footer(){
                 <li><a href="/Subscription" className="menu-footer__link">Подписка</a></li>
         </ul>
 
-        <ul className="list">
-            <li><a href="/Profile" className="list__link"><img src={profileIcon} alt="profile"></img>Профиль</a></li>
-            <li><a href="#" className="list__link"><img src={notifications} alt="notice"></img>Уведомления</a></li>
-            <li><a href="#" className="list__link"><img src={bookmark} alt="mark"></img>Закладки</a></li>
-        </ul>
+        
 
         <div className="сontacts">
             <h3 className="contacts__title">Контакты</h3>
