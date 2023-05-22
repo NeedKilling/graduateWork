@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useParams,Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
-import { setBooks } from '../redux/actions/books';
+import { addBookProfile, fetchBooksHome } from '../redux/actions/books';
 
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
@@ -12,9 +12,17 @@ import star from "../assets/icons/star.svg"
 
 
 function BookPage() {
+    const dispatch = useDispatch()
     const items = useSelector((state) => state.Books.items);
     const {id} = useParams()
-    const {name} = useParams()
+    const addBook = (arr) => {
+        dispatch(addBookProfile(arr))
+    }
+    console.log(id)
+    React.useEffect(()=>{
+        dispatch(fetchBooksHome())
+    },[])
+    console.log(items)
     // const dispatch = useDispatch();
 
     // useEffect(()=>{
@@ -34,7 +42,14 @@ function BookPage() {
                 <div className="wrapper">
                     <div className="bookPage_right">
                         <div className="bookPage_img"><img src={items[id].imageUrl} alt=""></img></div>
-                        <Link to={`/Book/${id}/${name}`} className="bookPage_link continue">Читать</Link>
+
+
+                        
+                        <button onClick={addBook(items)} style={{color: 'red', background:'green', padding:'20px', borderRadius:'10px'}}>Клик</button>
+
+
+
+                        <Link to={`/Book/${id}/${items[id].name}`} className="bookPage_link continue">Читать</Link>
                         <BookMarkInPage/>    
                     </div>
                     <div className="bookPage_left">
