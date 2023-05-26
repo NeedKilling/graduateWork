@@ -42,6 +42,7 @@ function Home (){
                     <BookHome key = {obj.id} {...obj}/>
                     ))
                 }
+                {/* <div className='more'>Загрузить еще...</div> */}
         </div>
     </div>
             </div>
