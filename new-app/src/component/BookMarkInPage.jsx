@@ -2,8 +2,8 @@ import React from 'react'
 import ClassNames from "classnames"
 import drop from "../assets/icons/drop.svg"
 
-function BookMarkInPage() {
-
+function BookMarkInPage({id,name,subName,imageurl,onClickAddBook}) {
+        
     const category = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
 
     const [visibleDrop , setVisibleDrop] = React.useState(false)
@@ -11,10 +11,8 @@ function BookMarkInPage() {
     const [activeDrop, setActiveDrop] = React.useState()
     
     const activeNameDrop = category[activeDrop] // предмет[0]
-
-    const switchActive = (index) =>{
-        setActiveDrop(index)   
-    }
+    console.log(activeNameDrop)
+   
         const taggleDrop = () => {
             setVisibleDrop(!visibleDrop)
         }
@@ -28,9 +26,23 @@ function BookMarkInPage() {
         setActiveDrop()
     }
         
+    
+
+
     React.useEffect(() => {
         document.addEventListener('click' , handleOutClick);
     },[]);
+    const switchActive = (index) =>{
+        setActiveDrop(index)
+        const object = {
+            id,
+            name,
+            subName,
+            imageurl,
+            type: category[index]
+        }
+        onClickAddBook(object) 
+    }
 
   return (
     <div className="bookPage_dropdown">
