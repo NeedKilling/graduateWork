@@ -32,7 +32,7 @@ function Pagination({textForPage,totalTEXT, paginat,nextText,prevText,currentPag
   return (
     <div className='Pagination'>
         <div className="block">
-            <div onClick={prevText} className = {currentPage === 1 ? "block_number arrow disabled" : "block_number arrow"}>{"<"}</div>
+            <a href="#" onClick={prevText} className = {currentPage === 1 ? "block_number arrow disabled" : "block_number arrow"}>{"<"}</a>
             <dib className="wrapper"> 
             {
                 // pageNumbers.map((number,index) => (
@@ -48,7 +48,7 @@ function Pagination({textForPage,totalTEXT, paginat,nextText,prevText,currentPag
             
             }
             </dib>
-            <div onClick={nextText} className = {currentPage >= pageNumbers.length ? "block_number arrow disabled" : "block_number arrow"}>{">"}</div>
+            <a href="#" onClick={nextText} className = {currentPage >= pageNumbers.length ? "block_number arrow disabled" : "block_number arrow"}>{">"}</a>
         </div>
     </div>
   )
