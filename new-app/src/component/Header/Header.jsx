@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProfileDrop from './ProfileDrop'
-
+import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom'
 
 
@@ -11,9 +11,13 @@ import profileAvatar from "../../assets/img/avatar_none.png"
 
 
 
+
 function Header(){
 const [dropActive,setDropActive] = useState(true)
    
+const {totalCount} = useSelector(({Profile}) => ({
+    totalCount: Profile.totalCount,
+}))
 
 return(
     <div>
@@ -36,6 +40,7 @@ return(
             
             <div onClick={() => setDropActive(!dropActive)} className='dropdown-profile'>
                     <img src={profileAvatar} alt="avatar_none"></img>
+                    <div className='dropdown-profile_counter'>{totalCount}</div>
                 <ProfileDrop active={dropActive} setActive={setDropActive}/>
             </div>           
                 
