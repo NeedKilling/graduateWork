@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 
-import filtresReducers from "./filtres"
-import BooksReducers from "./books"
-import TextReducers from './text'
+import filtres from "./filtres"
+import Books from "./books"
+import text from './text'
+import Profile from "./profileList";
 
 const rootReducer = combineReducers({
-    filtres : filtresReducers,
-    Books : BooksReducers,
-    text : TextReducers,
+    filtres,
+    Books,
+    text,
+    Profile 
 })
 
 export default rootReducer;
