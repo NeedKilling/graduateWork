@@ -5,16 +5,29 @@ export const setLoaded = (payload) => ({
     payload,
 })
 
-export const fetchBooksCatalog = (sortBy) => (dispatch)=>{
-    console.log(sortBy)
+export const fetchBooksCatalog = (sortBy,sortByBar,sortByBarGenre) => (dispatch)=>{
+    console.log(sortByBarGenre)
     dispatch({
         type: 'SET_LOADING',
         payload: false,
     })
-    axios.get(`http://localhost:3001/book?_sort=${sortBy.type},vievs&_order=${sortBy.order}`).then(({data}) =>{
-    dispatch(setBooks(data));
-});
+   
+    if(sortByBarGenre === null && sortByBar === null){
+        axios.get(`/book?_sort=${sortBy.type},vievs&_order=${sortBy.order}`).then(({data}) =>{
+        dispatch(setBooks(data))})
+    }else if(sortByBar !== null && sortByBarGenre === null){
+        axios.get(`/book?_sort=${sortBy.type},vievs&_order=${sortBy.order}&country=${sortByBar}`).then(({data}) =>{
+        dispatch(setBooks(data))})
+    }else if (sortByBar === null && sortByBarGenre !== null){
+        axios.get(`/book?_sort=${sortBy.type},vievs&_order=${sortBy.order}&genre=${sortByBarGenre}`).then(({data}) =>{
+        dispatch(setBooks(data))})
+    }else if(sortByBar !== null && sortByBarGenre !== null){
+        axios.get(`/book?_sort=${sortBy.type},vievs&_order=${sortBy.order}&country=${sortByBar}&genre=${sortByBarGenre}`).then(({data}) =>{
+        dispatch(setBooks(data))})
+    }
+
 };
+
 
 export const fetchBooksProfile = (categorias) => (dispatch)=>{
     console.log(categorias)
@@ -22,7 +35,7 @@ export const fetchBooksProfile = (categorias) => (dispatch)=>{
         type: 'SET_LOADING',
         payload: false,
     })
-    axios.get(`http://localhost:3001/book?${categorias !== null ? `category=${categorias}` : ''}`).then(({data}) =>{
+    axios.get(`/book?${categorias !== null ? `category=${categorias}` : ''}`).then(({data}) =>{
     dispatch(setBooks(data));
 });
 };
@@ -31,7 +44,13 @@ export const fetchBooksHome = () => (dispatch)=>{
         type: 'SET_LOADING',
         payload: false,
     })
-    axios.get(`http://localhost:3001/book`).then(({data}) =>{
+    axios.get(`/book`).then(({data}) =>{
+    dispatch(setBooks(data));
+});
+};
+export const fetchBooksPage = (id) => (dispatch)=>{
+    console.log(id)
+    axios.get(`/book/${id}`).then(({data}) =>{
     dispatch(setBooks(data));
 });
 };
@@ -41,7 +60,7 @@ export const fetchBooksHome = () => (dispatch)=>{
 
 /////
 export const addBookProfile = (payload) => (dispatch)=>{
-    console.log(payload)
+    //console.log(payload)
     dispatch({
         type: 'ADD_BOOK',
         payload,
