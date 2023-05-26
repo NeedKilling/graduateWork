@@ -25,9 +25,9 @@ function Profile(){
 
         const categoriasName = ["Читаю","В планах","Прочитано","Любимое","Брошено"];
     
-    React.useEffect(()=>{                /// получение книг при изменеии категории  
-        dispatch(fetchBooksProfile(categorias))
-    },[categorias]);
+    // React.useEffect(()=>{                /// получение книг при изменеии категории  
+    //     dispatch(fetchBooksProfile(categorias))
+    // },[categorias]);
 
 
         return(
@@ -49,11 +49,11 @@ function Profile(){
                
                />
                 <div class="content">
-                   {
+                   {/* {
                     isLoaded ? items.map(obj=>(
                         <BookProfile key = {obj.id} {...obj}/>
                     )) :  Array(15).fill(<LoadingProfile/>)
-                   }
+                   } */}
                    
                 </div>
             </div>
