@@ -7,23 +7,23 @@ import { useDispatch } from 'react-redux'
 import { setCategorias } from '../../redux/actions/filtres'
 
 
-function BookHome({id,name,imageUrl,subName,rating,description}) {
+function BookHome({id,name,imageurl,subname,rating,description}) {
     
     
 
   return (
-    <div className="book">
+    <div id={"book"} className="book">
         <div className="book-item">
             <div className="rating">
                 <img src={star} alt="star" className="star"></img>
                 <p className="rating-text">{rating}</p>
             </div>
             <div className="book-item__top">
-                <div className="book-item__left"><Link to = {`/Book/${id}`}><img src={imageUrl} alt="book"></img></Link></div>
+                <div className="book-item__left"><Link to = {`/Book/${id}`}><img src={imageurl} alt="book"></img></Link></div>
                 <div className="book-item__right">
                     <div className="right-title"><Link  to = {`/Book/${id}`}>
                         <div className = "right-title_name">{name}</div>
-                        </Link><div className='right-title_subName'>{subName}</div>
+                        </Link><div className='right-title_subName'>{subname}</div>
                     </div>
                     <div className="right-description">{description}</div>
                     
