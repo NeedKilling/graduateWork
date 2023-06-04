@@ -7,24 +7,25 @@ import { addBooksProfile } from '../redux/actions/profieList';
 
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
+import { setAddedCategorias } from '../redux/actions/filtres';
 
 import {BookMarkInPage} from '../component'
 import star from "../assets/icons/star.svg"
+import filtres from '../redux/reducers/filtres';
 
 
 function BookPage() {
     const dispatch = useDispatch()
     const items = useSelector((state) => state.Books.items);
     const {id} = useParams()
-    //////
-    // const addBook = (arr) => {
-    //     dispatch(addBookProfile(arr))
-    // }
-    /////
 
+    const {addedCategorias} = useSelector(({filtres}) => filtres)
     const [rquest,setRquest] = React.useState([])
 
     
+    const onAddedCategorias = React.useCallback((index) => {
+        dispatch(setAddedCategorias(index));
+    },[]);
 
     const onClickAddBooks = (obj)=>{
         dispatch({
@@ -53,16 +54,18 @@ function BookPage() {
                 <div className="wrapper">
                     <div className="bookPage_right">
                         <div className="bookPage_img"><img src={rquest.imageurl} alt=""></img></div>
-
-
-                        
-                        {/* <button onClick={addBook(items)} style={{color: 'red', background:'green', padding:'20px', borderRadius:'10px'}}>Клик</button> */}
-                        {/* <button onClick={()=>onClickAddBook([rquest.id,rquest.name,rquest.subName])} style={{color: 'red', background:'green', padding:'20px', borderRadius:'10px'}}>Клик</button> */}
-
-
-
                         <Link to={`/Book/${id}/${rquest.name}`} className="bookPage_link continue">Читать</Link>
-                        <BookMarkInPage id={rquest.id} name={rquest.name} subName={rquest.subname} imageurl={rquest.imageurl} onClickAddBook={onClickAddBooks}/>    
+
+                        <BookMarkInPage 
+                            id={rquest.id} 
+                            name={rquest.name} 
+                            subName={rquest.subname} 
+                            imageurl={rquest.imageurl} 
+                            onClickAddBook={onClickAddBooks}
+                            onAddedCategorias = {onAddedCategorias}
+                            activeCategorias = {addedCategorias}
+                        />
+
                     </div>
                     <div className="bookPage_left">
                         <div className="head">
