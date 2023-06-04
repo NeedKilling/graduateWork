@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 
-
 export default function SliderBig ({items}) {
     const settings = {
     //   dots: true,
