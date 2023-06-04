@@ -10,7 +10,47 @@
         transform: translate(2px, 2px)
     100% 
         transform: translate(-2px, -2px)
+html[data-theme='dark']
+    --bac-color: #181818
+    --main-color: #202020
+    --sub-color: #303030
+    --activeGreen-color: #15ab1a
+    --activeGray-color: #928D8D
+    --activeLastUpdate-color: #928D8D
+    --text-color: #fff
+    --title: #fff
+    --borderLastUpdate: #4F4F4F
+    --itemLastUpdate: #333333       
+    --hoverLastUpdate: #4A4A4A
+    --Main-block: #202020
+    --Main-block-text: #fff
+    --LineUpdate: #D9D9D9
+    --ProfileActive: #272727
+    --ProfileImage: #181818
+    --Pagination: #252525
+    --PaginationDisabled: #404040
+    --PaginationDisabled2: #252525
 
+html[data-theme='light']
+    --bac-color: #ebebeb
+    --main-color: #c0c0c0
+    --sub-color: #FFF
+    --activeGreen-color: #1d87e1
+    --activeGray-color: #55616b
+    --activeLastUpdate-color: #1d87e1
+    --text-color: #000
+    --title: #fff
+    --borderLastUpdate: #7b7272
+    --itemLastUpdate: #bfbbbb
+    --hoverLastUpdate: #8f8787
+    --Main-block: #202020
+    --Main-block-text: #fff
+    --LineUpdate: #282828
+    --ProfileActive: #a6aaae
+    --ProfileImage: #c0c0c0
+    --Pagination: #878787
+    --PaginationDisabled: #ffffff
+    --PaginationDisabled2: #eae8e8
 *
     user-select: none
 *
@@ -35,12 +75,14 @@ body
 //
 
 body
-    background-color: #181818
+    background-color: var(--bac-color)
+    transition: all .5s ease
 
 header
-    top: -70px
+    //top: -70px
+    position: fixed
     width: 100%
-    background-color: $main_color
+    background-color: var(--Main-block)
     z-index: 10
     transition: all .5s ease
     .nav
@@ -48,10 +90,14 @@ header
         display: flex
         justify-content: space-between
         align-items: center
+        .wrapper
+            display: flex
+            align-items: center
+            gap: 20px
         .searh
             &_form
                 position: relative
-                width: 330px
+                width: 300px
                 input
                     width: 100%
                     height: 27px
@@ -60,9 +106,10 @@ header
                     border-radius: 10px
                     padding: 0
                     padding-left: 30px
-                    background: $sub_color
+                    background: var(--sub-color)
                     color: #CEC0C0
-                button
+                    transition: all .5s ease
+                .submit
                     position: absolute
                     height: 27px
                     padding: 2px
@@ -70,9 +117,48 @@ header
                     border: none
                     border-radius:10px 
                     cursor: pointer
-                    background: $sub_color
-                    color: $sub_color
-                   
+                    
+        .switchTheme
+            padding: 3px
+            position: relative
+            display: flex
+            justify-content: space-between
+            background-color: #000
+            width: 62px
+            height: 33px
+            border-radius: 20px
+            cursor: pointer
+            
+            .dote
+                position: absolute
+                top: 3px
+                left: 3px
+                
+                &::before
+                    content: ""
+                    position: absolute
+                    width: 27px
+                    height: 27px
+                    background-color: #fff
+                    border-radius: 50%
+                            
+            &_item
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 27px
+                height: 27px
+                border-radius: 10px
+                transition: all .5s ease  
+            .active + .dote::before
+                    transition: all .5s ease  
+                    transform: translateX(29px)  
+            .disabled + .dote::before
+                    transition: all .5s ease  
+                    //display: none
+                    transform: translateX(0px)  
+
+
         .dropdown-profile
             position: relative
             display: inline-block
@@ -83,7 +169,7 @@ header
                 align-items: center
                 top: -5px
                 right: -5px
-                color: #ffff
+                color: var(--Main-block-text)
                 font-weight: 300
                 font-size: 15px
                 width: 20px
@@ -106,8 +192,8 @@ header
             text-align: start
             transition: all .2s ease
             transform: scale(0)
-            border: 1px solid $sub_color
-            box-shadow: 0 0 10px $sub_color
+            border: 1px solid var(--sub-color)
+            box-shadow: 0 0 10px var(--sub-color)
             &_show
                 transform: scale(1)
             .line
@@ -125,7 +211,7 @@ header
                 font-weight: 300
                 font-size: 15px
                 line-height: 18px
-                color: #ffff
+                color: var(--text-color)
                 border-radius: 5px
                 transition: all .2s ease
                 
@@ -136,7 +222,7 @@ header
                     top: 2.5px
                     margin-right: 5px 
                 &:hover
-                    background: $sub_color 
+                    background: var(--sub-color) 
                 &:active
                     transform: scale(1.1)
                 
@@ -155,7 +241,7 @@ header
                 font-weight: 400
                 font-size: 20px
                 line-height: 23px
-                color: #FFFFFF
+                color: var(--Main-block-text)
                 transition: all .2s ease
                 img
                     position: relative
@@ -167,7 +253,7 @@ header
                     bottom: -3px
                     width: 0
                     height: 2px
-                    background-color: $activeGray_color
+                    background-color: var(--activeGray-color)
                     transition: width 1s 
                 &:hover:after 
                     content: ""
@@ -177,7 +263,7 @@ header
                     left: 0
                     bottom: -3px
                     height: 2px
-                    background-color: #fff
+                    background-color: var(--Main-block-text)
                     transition: width 0.5s
                 
                 
@@ -192,6 +278,7 @@ header
 
 
 .intro
+    margin-top: 70px
     width: 100%
     min-height: 300px
     background: url('../assets/img/introblock.jpg') center no-repeat 
@@ -201,7 +288,7 @@ header
         font-weight: 700
         font-size: 48px
         line-height: 56px
-        color: #FFFFFF
+        color: var(--title)
 
 .continueRead
     display: none
@@ -209,22 +296,26 @@ header
     &_active
         display: block
     &_block
-        background-color: $main_color
+        background-color: var(--main-color)
         width: 100%
         min-height: 376px
         border-radius: 35px
+        transition: all .5s ease
         .title
             padding-left: 70px
             font-weight: 300
             font-size: 32px
             line-height: 38px
-            color: #FFFFFF
+            color: var(--text-color)
+            transition: all .5s ease
         .contineSlider
             position: relative
             padding: 34px 30px 34px 30px
             text-align: center
+            width: 100%
+            display: block
             .book
-                display: inline-block
+                display: block
                 //margin-left: 27px
                 min-height: 265px
                 width: 155px
@@ -237,21 +328,25 @@ header
                         border-radius: 10px
                 &_name
                     font-weight: 300
-                    font-size: 20px
+                    width: 155px
+                    margin: 0 auto
+                    font-size: 15px
                     line-height: 27px
-                    color: #FFFFFF
+                    color: var(--text-color)
+                    word-wrap: normal   
                     transition: all .2s ease
                     &:hover
-                        color: $activeGray_color
+                        color: var(--activeLastUpdate-color)
                 &_subName
                     font-weight: 400
                     font-size: 12px
                     line-height: 16px
-                    color: $activeGray_color
+                    color: var(--activeGray-color)
+                    
                 &:focus
                     outline: none
             .slick-arrow
-                background: #fff 
+                background: var(--text-color) 
                 position: absolute
                 top: 50%
                 transform: translateY(-50%)
@@ -280,7 +375,7 @@ header
     display: block
     width: 100%
     min-height: 380px
-    background-color:$main_color
+    background-color:var(--main-color)
     padding: 37px 0px 37px 0px   
     &_book
         display: block
@@ -297,7 +392,7 @@ header
             font-weight: 300
             font-size: 17px
             line-height: 28px
-            color: #FFFFFF
+            color: var(--text-color)
             transition: all .2s ease
             word-wrap: break-word
                 
@@ -305,13 +400,13 @@ header
             font-weight: 400
             font-size: 14px
             line-height: 16px
-            color: $activeGray_color
+            color: var(--activeLastUpdate-color)
         
         &:focus 
             outline: none
         &:hover
             .slider_book_name
-                color: $activeGray_color
+                color: var(--activeLastUpdate-color)
                        
 //////////////////стили слайдера/////////
 .slick-track
@@ -331,12 +426,12 @@ header
             font-weight: 400
             font-size: 24px
             line-height: 28px
-            color: #FFFFFF
+            color: var(--text-color)
         
     .line
         width: 388px
         height: 1px
-        background-color:  #D9D9D9
+        background-color:  var(--LineUpdate)
 
 
     .book
@@ -346,9 +441,12 @@ header
             padding: 10px
             position: relative
             margin: 0 auto
-            background-color: $main_color 
+            background-color: var(--main-color) 
             width: 820px
             min-height: 358px
+            transition: all .5s ease
+            box-shadow: 0 0 10px #404040
+            border: 1px solid #404040
             &__top
                 display: flex
                 gap: 20px
@@ -364,14 +462,14 @@ header
                         font-weight: 300
                         font-size: 24px
                         line-height: 33px
-                        color: #FFFFFF
+                        color: var(--text-color)
                         transition: all .2s ease
                         &:hover
-                            color: $activeGray_color
+                            color: var(--activeLastUpdate-color)
                     &_subName
                         word-break: break-all   
                         font-size: 18px
-                        color: $activeGray_color
+                        color: var(--activeLastUpdate-color)
 
                     
                 .right-description
@@ -381,8 +479,9 @@ header
                     font-weight: 300
                     font-size: 16px
                     line-height: 22px
-                    color: #FFFFFF
+                    color: var(--text-color)
                     text-align: justify
+                    transition: all .5s ease
             .rating
                 display: flex
                 position: absolute
@@ -398,32 +497,34 @@ header
                     font-weight: 300
                     font-size: 20px
                     line-height: 27px
-                    color: #FFFFFF
+                    color: var(--text-color)
+                    transition: all .5s ease
             &__bottom
                 display: flex
                 align-items: center
                 justify-content: space-between
                 margin-top: 10px
                 height: 31px
-                background: #333333
-                border: 1px solid #4F4F4F
+                background: var(--itemLastUpdate)
+                border: 1px solid var(--borderLastUpdate)
                 border-radius: 30px
+                transition: all .5s ease
                 .read
                     display: flex
                     align-items: center
                     justify-content: center
                     width: 222px
                     height: 31px
-                    border: 1px solid #4F4F4F
+                    border: 1px solid var(--borderLastUpdate)
                     border-radius: 30px
                     font-weight: 700
                     font-size: 16px
                     line-height: 19px
-                    color: #FFFFFF
+                    color: var(--text-color)
                     transition: all .4s ease
                     &:hover
                         //scale: 1.05
-                        background: #4A4A4A
+                        background: var(--hoverLastUpdate)
                 .mark
                     display: flex
                     justify-content: center
@@ -435,7 +536,7 @@ header
                     font-weight: 300
                     font-size: 16px
                     line-height: 22px
-                    color: #FFFFFF
+                    color: var(--text-color)
                     img
                         width: 14px
                         height: 14px
@@ -449,7 +550,7 @@ header
                     top: 36px
                     z-index: 1
                     position: absolute
-                    background: $sub_color
+                    background: var(--sub-color)
                     padding: 10px
                     right: 50%
                     transform: translateX(50%)
@@ -465,11 +566,11 @@ header
                         li
                             cursor: pointer
                         &:hover
-                            background: #4F4F4F
+                            background: var(--borderLastUpdate)
 
                         &_active
                             color: #3384da
-                            background-color: #4F4F4F
+                            background-color: var(--borderLastUpdate)
     // .book:not(:nth-child(-n + 6))
     //     display: none
     .more
@@ -484,10 +585,10 @@ header
         font-weight: 300
         font-size: 20px
         line-height: 23px
-        color: #FFFFFF
+        color: var(--text-color)
         transition: all .2s ease
         &:hover
-            background: #333333
+            background: var(--itemLastUpdate)
         &:active
             transition: all .2s ease
             scale: 1.05
@@ -501,7 +602,8 @@ header
     width: 100%
     padding: 71px 0 71px 0
     height: 300px
-    background-color: #070707
+    background-color: var(--Main-block)
+    transition: all .5s ease
     .wrapper
         display: flex
         justify-content: space-between
@@ -509,13 +611,15 @@ header
         font-weight: 300
         font-size: 16px
         line-height: 19px
-        color: #FFFFFF
+        color: var(--Main-block-text)
+        transition: all .5s ease
     .logo-title
         padding: 10px 0 30px 0
         font-weight: 300
         font-size: 16px
         line-height: 19px
-        color: #FFFFFF
+        color: var(--Main-block-text)
+        transition: all .5s ease
     .logo
         display: flex
         align-items: center
@@ -524,7 +628,8 @@ header
             font-weight: 300
             font-size: 40px
             line-height: 47px
-            color: #FFFFFF
+            color: var(--Main-block-text)
+            transition: all .5s ease
             span
                 font-weight: 700
     .menu-footer
@@ -532,10 +637,10 @@ header
             font-weight: 700
             font-size: 17px
             line-height: 20px
-            color: #FFFFFF
+            color: var(--Main-block-text)
             transition: all .2s ease
             &:hover
-                color: $activeGray_color
+                color: var(--activeGray-color)
         li:nth-child(2)
             margin: 18px 0 18px 0
            
@@ -544,11 +649,11 @@ header
             font-weight: 700
             font-size: 17px
             line-height: 20px
-            color: #FFFFFF
+            color: var(--Main-block-text)
             text-decoration: none
             transition: all .2s ease
             &:hover
-                color: $activeGray_color
+                color: var(--activeGray-color)
             img
                 margin-right: 5px
                 position: relative
@@ -560,13 +665,15 @@ header
             font-weight: 700
             font-size: 17px
             line-height: 20px
-            color: #FFFFFF
+            color: var(--Main-block-text)
+            transition: all .5s ease
         &__text
             padding: 25px 0 12px 0
             font-weight: 300
             font-size: 16px
             line-height: 25px
-            color: #FFFFFF
+            color: var(--Main-block-text)
+            transition: all .5s ease
         &__social
             display: flex
             gap: 15px
@@ -580,7 +687,8 @@ header
 
 
 .profile
-    margin-top: 35px
+    //margin-top: 35px
+    margin-top: 105px
     padding-bottom: 22%
     
     .wrapper
@@ -592,6 +700,9 @@ header
         width: 200px
         height: 200px
         display: block
+        background-color: var(--ProfileImage)
+        border-radius: 50%
+        transition: all .5s ease
         //margin-right: 20px
     &_intro
         display: block
@@ -604,8 +715,9 @@ header
         align-items: center
         width: 200px
         min-height: 35px
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 10px
+        transition: all .5s ease
         .nick
             text-align: center
             width: 200px
@@ -613,15 +725,17 @@ header
             font-weight: 300
             font-size: 24px
             line-height: 28px
-            color: #FFFFFF
+            color: var(--text-color)
+            transition: all .5s ease
     &_navBar
         padding-left: 25px
         display: flex
         gap: 25px
         width: 936px
         height: 35px
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 10px
+        transition: all .5s ease
         .navBar_link
             padding: 5px 10px 5px 10px
             display: flex
@@ -629,19 +743,23 @@ header
             font-weight: 300
             font-size: 16px
             line-height: 19px
-            color: #FFFFFF
+            color: var(--text-color)
             border-radius: 10px
             transition: all .3s ease
             &:hover
-                background-color: $sub_color
+                background-color: var(--sub-color)
             &:active
                 transform: scale(1.1)
+        .disabled
+            color: var(--activeGray-color)
+            pointer-events: none
     &_list
         width: 200px
         height: 100%
         padding: 20px 10px 20px 10px
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 10px
+        transition: all .5s ease
         .item
             padding: 7px 0 7px 10px
             border-radius:3px
@@ -649,15 +767,15 @@ header
             font-weight: 300
             font-size: 18px
             line-height: 21px
-            color: #FFFFFF
+            color: var(--text-color)
             cursor: pointer
             user-select: none
             &_active
-                background-color: #272727
+                background-color: var(--ProfileActive)
                 transform: translate(-20%)
                 
             &:hover
-                background-color: $sub_color
+                background-color: var(--sub-color)
             &:active
                 //transform: scale(1.1)
                 transform: translateX(0%)
@@ -667,14 +785,56 @@ header
     
 
     .content
+        width: 936px
+        &_clear
+            height: 100%
+            display: flex
+            justify-content: center
+            aligns-items: center
+            color: var(--text-color)
+            flex-direction: column
+            gap: 10px
+            transition: all .5s ease
+            .title
+                font-weight: 400
+                font-size: 20px
+                display: flex
+                justify-content: center
+            .description
+                font-weight: 300
+                font-size: 16px
+                display: flex
+                justify-content: center
+            .image
+                margin: 0 auto
+                width: 150px
+                height: 150px
+                opacity: 0.8
+            .link
+                display: flex
+                gap: 50px
+                justify-content: center
+                .redirect
+                    color: var(--text-color)
+                    width: 100px
+                    height: 30px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    background-color: var(--sub-color)
+                    border-radius: 3px
+                    transition: all .2s ease
+                    &:hover
+                        background-color: var(--main-color)
         &_item
             display: flex
             padding: 10px
             margin-bottom: 10px
-            width: 936px
+            width: 100%
             min-height: 128px
             border-radius: 15px
-            background-color: $main_color
+            background-color: var(--main-color)
+            transition: all .5s ease
             .img
                 display: inline-block
                 img
@@ -685,25 +845,26 @@ header
                     font-weight: 300
                     font-size: 16px
                     line-height: 19px
-                    color: #FFFFFF
+                    color: var(--text-color)
                     transition: all .2s ease
                     &:hover
-                        color: $activeGray_color
+                        color: var(--activeGray-color)
                 .subName
                     margin-top: 5px
                     font-weight: 300
                     font-size: 14px
                     line-height: 16px
-                    color: $activeGray_color
+                    color: var(--activeGray-color)
+                    transition: all .5s ease
                 .continue
                     margin-top: 15px
                     font-weight: 300
                     font-size: 14px
                     line-height: 16px
-                    color: $activeGray_color
+                    color: var(--activeGray-color)
                     transition: all .2s ease
                     &:hover
-                        color: #fff
+                        color: var(--text-color)
                         
                     &:active
                         transform: scale(1.1)
@@ -716,7 +877,8 @@ header
 
 
 .catalog
-    margin-top: 35px
+    //margin-top: 35px
+    margin-top: 105px
     padding-bottom: 20% 
     .wrapper
         position: relative
@@ -731,13 +893,17 @@ header
         padding: 0 15px 0 15px
         width: 843px
         height: 52px
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 10px
+        // box-shadow: 0 0 10px #404040
+        // border: 1px solid #404040
+        transition: all .5s ease
     .title
         border-radius: 10px
         font-weight: 300
         font-size: 20px
-        color: #FFFFFF
+        color: var(--text-color)
+        transition: all .5s ease
     &_sort
         display: flex
         gap: 15px
@@ -747,40 +913,43 @@ header
             font-weight: 300
             font-size: 16px
             line-height: 19px
-            color: #FFFFFF
+            color: var(--text-color)
+            transition: all .5s ease
         .btn_drop
             position: relative
             top:1px
             font-weight: 300
             font-size: 16px
             line-height: 16px
-            color: $activeGreen_color
+            color: var(--activeGreen-color)
+            transition: all .5s ease
     &_drop
         position: absolute
         gap: 10px
         padding: 10px
         right: 15px
         top: 52px
-        background-color: #252525
-        border: 1px solid $sub_color
-        box-shadow: 0 0 10px $sub_color
+        background-color: var(--main-color)
+        border: 1px solid var(--sub-color)
+        box-shadow: 0 0 10px var(--sub-color)
         border-radius: 10px
         z-index: 1
+        transition: all .5s ease
         &_item
             padding: 10px
             font-weight: 300
             font-size: 17px
             line-height: 16px
-            color: #FFFFFF
+            color: var(--text-color)
             border-radius: 5px
             transition: all .2s ease
             cursor: pointer
             &:hover
-                background-color: $sub_color
+                background-color: var(--sub-color)
             &:active
                 transform: scale(1.1)
         .active
-            color: $activeGreen_color
+            color: var(--activeGreen-color)
         
         
     .content
@@ -789,8 +958,11 @@ header
         gap: 12px
         padding: 10px
         width: 843px
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 10px
+        // box-shadow: 0 0 10px #404040
+        // border: 1px solid #404040
+        transition: all .5s ease
         .book
             position: relative
             width: 155px
@@ -818,7 +990,7 @@ header
                 font-weight: 300
                 font-size: 14px
                 line-height: 100%
-                color: #FFFFFF
+                color: var(--title)
                 overflow: hidden
                 white-space: nowrap
 
@@ -827,7 +999,7 @@ header
                 
                 padding: 5px
                 background-color: #ebdede
-                color: #ffffff
+                color: var(--text-color)
                 position: absolute
                 top:-25px
                 left: 10px
@@ -842,6 +1014,7 @@ header
                 white-space: nowrap
                 opacity: 0
                 transition: opacity 0.3s
+                transition: all .5s ease
             
 
 
@@ -852,6 +1025,7 @@ header
                 font-size: 11px
                 line-height: 100%
                 color: #7faabf
+
                 
     .sortBar
         padding: 10px 
@@ -859,8 +1033,11 @@ header
         right: 0
         top: 0
         width: 293px
-        background-color: $main_color
-        border-radius: 10px 
+        background-color: var(--main-color)
+        border-radius: 10px
+        // box-shadow: 0 0 10px #404040
+        // border: 1px solid #404040
+        transition: all .5s ease
         &_item
             padding: 0 20px 0 20px 
             display: flex
@@ -882,17 +1059,18 @@ header
                     font-weight: 300
                     font-size: 16px
                     line-height: 19px
-                    color: #FFFFFF
+                    color: var(--text-color)
                     cursor: pointer
+                    transition: all .5s ease
                     &_active
-                        background-color: $sub_color
-                        color: $activeGreen_color
+                        background-color: var(--sub-color)
+                        color: var(--activeGreen-color)
                 label
                     padding-left: 5px
                     font-weight: 300
                     font-size: 16px
                     line-height: 19px
-                    color: #FFFFFF
+                    color: var(--text-color)
 
         .text
             padding: 5px 0 5px 0
@@ -901,11 +1079,12 @@ header
             font-weight: 300
             font-size: 20px
             line-height: 19px
-            color: #FFFFFF
+            color: var(--text-color)
             transform: translateX(-10px)
 
 .popular
-    margin-top: 35px
+    //margin-top: 35px
+    margin-top: 105px
     padding-bottom: 310px
     &_sort
         justify-content: center
@@ -915,21 +1094,21 @@ header
             font-weight: 300
             font-size: 24px
             line-height: 28px
-            color: #FFFFFF
+            color: var(--text-color)
         .btn
             height: 33px
             width: 130px
             display: flex
             justify-content: center
             align-items: center
-            background-color: $sub_color
+            background-color: var(--sub-color)
             border-radius: 8px
             gap: 11px
             .text
                 font-weight: 300
                 font-size: 16px
                 line-height: 19px
-                color: #FFFFFF
+                color: var(--text-color)
             img
                 height: 24px
                 width: 24px
@@ -959,21 +1138,21 @@ header
             font-weight: 300
             font-size: 20px
             line-height: 23px
-            color: #FFFFFF
+            color: var(--text-color)
             transition: all .3s ease
             &:hover
-                color: $activeGray_color 
+                color: var(--activeGray-color) 
                 
         .subName
             font-weight: 400
             font-size: 20px
             line-height: 23px
-            color: $activeGray_color
+            color: var(--activeGray-color)
 
         .position
             position: relative
             padding: 28px 32px 10px 32px
-            background-color: $main_color
+            background-color: var(--main-color)
             border-radius: 15px
             &:hover .marker 
                 animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite
@@ -1002,7 +1181,7 @@ header
         width: 770px
         display: flex
         padding: 8px 0 8px 0
-        background-color: $main_color
+        background-color: var(--main-color)
         border-radius: 15px
         margin-bottom: 20px
         .number
@@ -1012,7 +1191,7 @@ header
             font-weight: 400
             font-size: 40px
             line-height: 47px
-            color: #FFFFFF
+            color: var(--text-color)
         img
             width: 131px
             height: 178px
@@ -1022,36 +1201,40 @@ header
                 font-weight: 300
                 font-size: 20px
                 line-height: 23px
-                color: #FFFFFF
+                color: var(--text-color)
                 transition: all .3s ease
                 &:hover
-                    color: $activeGray_color 
+                    color: var(--activeGray-color) 
             .subName
                 font-weight: 400
                 font-size: 20px
                 line-height: 23px
-                color: $activeGray_color
+                color: var(--activeGray-color)
 
 .subscription
+    padding-top:70px 
     margin: 35px 0 35px 0
     .tarif
-        background-color: $main_color
+        background-color: var(--main-color)
         padding: 20px 29px 35px 29px
         border-radius: 15px
         box-shadow: 0 0 10px #404040
         border: 1px solid #404040
+        transition: all .5s ease
         .wrapper
             display: flex
             justify-content: space-between
         &_title
             font-weight: 800
             font-size: 33px
-            color: #fff
+            color: var(--text-color)
+            transition: all .5s ease
         &_subtitle
             margin-top: 18px
             font-weight: 300
             font-size: 17px
-            color: #fff
+            color: var(--text-color)
+            transition: all .5s ease
         &_item
             min-height: 512px
             width: 327px
@@ -1073,13 +1256,15 @@ header
                 line-height: 187.5%
                 font-weight: 700
                 font-size: 32px
-                color: #FFFFFF
+                color: var(--text-color)
+                transition: all .5s ease
             .value
                 line-height: 187.5%
                 position: relative
                 font-weight: 700
                 font-size: 24px
-                color: #FFFFFF
+                color: var(--text-color)
+                transition: all .5s ease
                 &::before
                     position: absolute
                     content: ""
@@ -1094,7 +1279,8 @@ header
                 position: relative
                 font-weight: 700
                 font-size: 24px
-                color: #FFFFFF
+                color: var(--text-color)
+                transition: all .5s ease
                 &::before
                     position: absolute
                     content: ""
@@ -1103,12 +1289,14 @@ header
                     background-color: rgba(0,0,0,0.5)
                     bottom: 0
                     left: 0
+                    
             .text
                 line-height: 187.5%
                 margin-top: 24px
                 font-weight: 300
                 font-size: 24px
-                color: #FFFFFF
+                color: var(--text-color)
+                transition: all .5s ease
             .btn
                 width: 267px
                 height: 52px
@@ -1122,7 +1310,7 @@ header
                 transition: all .3s ease
                 &:hover
                     background-color: #08C532
-                    color: #fff
+                    color: var(--text-color)
                     transform: scale(1.05)
     .compresion
         &_title
@@ -1131,7 +1319,8 @@ header
             font-weight: 400
             font-size: 32px
             line-height: 187.5%
-            color: #FFFFFF
+            color: var(--text-color)
+            transition: all .5s ease
         .table
             border-collapse: separate
             width: 100%
@@ -1146,14 +1335,15 @@ header
                 border-radius: 50% 
 
             td
-                background-color: $main_color
+                background-color: var(--main-color)
                 border: 1px solid #404040
                 padding: 10px
                 text-align: center
                 font-weight: 400
                 font-size: 24px
                 line-height: 187.5%
-                color: #FFFFFF
+                color: var(--text-color)
+                transition: all .5s ease
                 //box-shadow: 0 0 10px #404040
             tr:nth-child(1)
                 td:nth-child(3)
@@ -1194,11 +1384,16 @@ header
             background-position: 50%
             background-repeat: no-repeat
             height: 320px
-            opacity: 0.2
+            //background: rgba(0,0,0,.8)
+            opacity: 0.8
             z-index: -1
             &:before
+                position: absolute
                 content: ''
-                background-color: rgba(0,0,0,.8)
+                z-index: 5
+                width: 100%
+                height: 300px
+                //background-color: rgba(0,0,0,.5)
             &:after
                 content: ""
                 display: block
@@ -1208,8 +1403,9 @@ header
                 right: 0
                 bottom: -1px
                 z-index: 3
-                background: -webkit-gradient(linear,left bottom,left top,from(#181818),to(transparent))
-                background: linear-gradient(0deg,#181818,transparent)
+                background: -webkit-gradient(linear,left bottom,left top,from(var(--bac-color)),to(transparent))
+                background: linear-gradient(0deg,var(--bac-color),transparent)
+                
                 
             
 
@@ -1228,14 +1424,15 @@ header
             font-weight: 400
             font-size: 18px
             line-height: 16px
-            color: #FFFFFF
+            color: var(--text-color)
+            transition: all .5s ease
             .dropdown_ul
                 position: absolute
                 border-radius: 3px
                 top: 40px
                 left: 0
                 width: 220px
-                background-color: $main_color
+                background-color: var(--main-color)
                 transition: all .2s ease
                 &__item
                     padding: 10px 0 10px 15px
@@ -1243,9 +1440,9 @@ header
                     cursor: pointer
                     transition: all .2s ease
                     &:hover
-                        background: #4F4F4F
+                        background: var(--borderLastUpdate)
                     &_active
-                        background-color: $sub_color
+                        background-color: var(--sub-color)
                     &_delete
                         color: red
 
@@ -1258,9 +1455,10 @@ header
                 align-items: center
                 width: 220px
                 height: 34px    
-                border: 2px solid $activeGray_color
+                border: 2px solid var(--activeGray-color)
                 border-radius: 10px
                 cursor: pointer
+                transition: all .5s ease
                 .img
                     position: absolute
                     top: 3px
@@ -1294,40 +1492,43 @@ header
             align-items: center
             width: 220px
             height: 34px    
-            border: 2px solid $activeGray_color
+            border: 2px solid var(--activeGray-color)
             border-radius: 10px
-            color: $activeGray_color
+            color: var(--activeGray-color)
             font-weight: 400
             font-size: 18px
             line-height: 16px
             transition: all .2s ease
             cursor: pointer
             &:hover
-                background-color: $activeGray_color
-                color: #fff
+                background-color: var(--activeGray-color)
+                color: var(--text-color)
         
         &_left
             width: 916px
             .head
                 display: flex
                 justify-content: space-between
-                background: $main_color
+                background: var(--main-color)
                 border-radius: 10px
                 padding: 11px 20px 11px 20px
+                transition: all .5s ease
             .title
                 display: flex
                 .name
                     font-weight: 300
                     font-size: 20px
                     line-height: 23px
-                    color: #FFFFFF
+                    color: var(--text-color)
+                    transition: all .5s ease
                 .subName
                     position: relative
                     bottom: -3px
                     font-weight: 300
                     font-size: 16px
                     line-height: 19px
-                    color: $activeGray_color
+                    color: var(--activeGray-color)
+                    transition: all .5s ease
             .rating
                     display: flex
                     top: 14px
@@ -1342,14 +1543,16 @@ header
                         font-weight: 300
                         font-size: 20px
                         line-height: 27px
-                        color: #FFFFFF
+                        color: var(--text-color)
+                        transition: all .5s ease
                 
             .content
                 position: relative
                 padding: 30px 57px 30px 57px
                 margin-top: 10px
-                background: $main_color
+                background: var(--main-color)
                 border-radius: 10px
+                transition: all .5s ease
                 .wrapper
                     display: flex
                     justify-content: flex-start
@@ -1364,7 +1567,8 @@ header
                     font-size: 16px
                     line-height: 19px
                     text-align: justify
-                    color: #FFFFFF
+                    color: var(--text-color)
+                    transition: all .5s ease
                     &::after
                         margin: 35px 57px 0 57px
                         content: ""
@@ -1372,21 +1576,25 @@ header
                         width: 802px
                         height: 1px
                         left: 0
-                        background-color:  $activeGray_color
+                        background-color:  var(--LineUpdate)
+                        transition: all .5s ease
                 .description
                     margin-top: 30px
                     font-weight: 300
                     font-size: 16px
                     line-height: 19px
                     text-align: justify
-                    color: #FFFFFF
+                    color: var(--text-color)
+                    transition: all .5s ease
 .TextInBook
+    padding-top: 70px 
     margin: 50px 0 50px 0
     .title
         font-weight: 400
         font-size: 40px
         line-height: 16px
-        color: #FFFFFF     
+        color: var(--text-color)
+        transition: all .5s ease  
     .content
         padding: 40px 20px 40px 20px    
         display: block
@@ -1395,9 +1603,10 @@ header
         
         .text
             font-weight: 300
-            color: #FFFFFF
+            color: var(--text-color)
             margin-bottom: 20px
             line-height: 2.6
+            transition: all .5s ease
         p
             display: inline-block
 
@@ -1414,32 +1623,35 @@ header
         // width: 1146px
         display: flex
         justify-content: space-between
+        transition: all .5s ease
         .wrapper
             display: flex
             gap: 10px
         &_number
-            color: #FFFFFF
+            color: var(--text-color)
             border-radius: 10px
             display: flex
             justify-content: center
             align-items: center
             width: 40px
             height: 40px
-            background-color: #252525
+            background-color: var(--main-color)
             font-size: 20px
             transition: .3s all ease
             border: 1px solid #353535
+            
             &:hover
-                background-color: $activeGray_color
+                background-color: var(--activeGray-color)
         .active
-            background-color: $activeGray_color
+            background-color: var(--activeGray-color)
         .arrow
             width: 100px
             font-size: 35px
         .disabled
+
             //visibility: hidden
-            background-color: $main_color
-            color: #404040
+            background-color: var(--PaginationDisabled2)
+            color: var(--PaginationDisabled)
             pointer-events: none
             
 
