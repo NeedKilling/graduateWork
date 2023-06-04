@@ -22,3 +22,7 @@ export const setCategorias = (value)=>({
 
 });
 
+export const setAddedCategorias = (value)=>({
+    type: "SET_ADDED_CATEGORIAS",
+    payload: value,
+})
