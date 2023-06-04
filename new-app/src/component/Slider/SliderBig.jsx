@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 
+
 export default function SliderBig ({items}) {
     const settings = {
     //   dots: true,
@@ -35,12 +36,12 @@ export default function SliderBig ({items}) {
             {
                 items && items.map(obj => (
                    <Link key ={obj.id} to = {`/Book/${obj.id}`}>
-                        <a href="#" className="slider_book">
+                        <div  className="slider_book">
                             <div className="slider_book_img"><img src={obj.imageurl}  alt="book"></img></div>
                             <div className="slider_book_name">{obj.name}</div>
                             <div className="slider_book_subName">{obj.subname}</div>
                             
-                        </a>
+                        </div>
                    </Link>
                 ))
             }
