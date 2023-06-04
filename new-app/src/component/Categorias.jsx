@@ -11,7 +11,7 @@ const Categorias = React.memo(
   
       return (
          
-           <ul class="profile_list">
+           <ul className="profile_list">
   
               <li onClick = {() => selectState(null)} 
               className={activeCategorias === null ? 'item item_active' : 'item'}>Все</li>            
