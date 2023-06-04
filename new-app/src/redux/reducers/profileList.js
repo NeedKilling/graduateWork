@@ -37,6 +37,12 @@ const initialState = {
                  totalCount: [].concat.apply([], Object.values(newItems)).length
              };
             }
+         case "CLEAR_PROFILE":
+            return{
+                ...state,
+                totalCount: 0,
+                items:{}
+            }
          default:
              return state
      }
