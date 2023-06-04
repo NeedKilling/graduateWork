@@ -6,8 +6,6 @@ import {fetchBooks} from './redux/actions/books';
 
 import {Header, Footer} from './component';
 import { Home, Profile, Catalog, Popular, Subscription,BookPage,Text} from './Pages'; 
-import {setBooks} from './redux/actions/books'
-
 
 function App(){
   const dispatch = useDispatch();
