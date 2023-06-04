@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import test from "../../assets/img/book.png"
 
-import testmin from "../../assets/img/book.png"
-
-export default class SliderBig extends Component {
-  render() {
+export default function SliderMin ({addedBooksProfile,curentReadBooks}) {
+    
     const settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 500,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1
-        slidesToShow: 6,
+        slidesToShow: 5,
         easing: 'easeInOutQuad',
         autoplay: false,
         speed: 1000,
-        infinity: true,
+        infinite: false,
         pauseOnFocus: false,
         pauseOnHover: false,
         pauseOnDotsHover: false,
@@ -24,55 +20,42 @@ export default class SliderBig extends Component {
         touchMove: false,
         touchThreshold: false,
         waitForAnimate: true,
-        wariableWidth: true,
-        focusOnSelect: false
-    };
-    return (
-      <div>
-       
-<div className="contineSlider">
-    <Slider {...settings}>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>    
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-        <a href="#" className="book">
-            <div className="book_img"><img src={testmin} alt="book"></img></div>
-            <div className="book_name">Повелитель</div>
-            <div className="book_subName">Overlord</div>
-        </a>
-    </Slider>
-</div>
+        variableWidth: false,
+        focusOnSelect: false,
         
-    </div>
-        
-      
-    );
-  }
 }
+    if(curentReadBooks <= 5 ){
+        settings.infinite = false
+    }else{
+        settings.infinite = true
+    }
+        return (
+          <div>
+           
+    <div className="contineSlider">
+        <Slider {...settings}>
+            {
+                addedBooksProfile.map(obj => (
+                <Link to = {`/Book/${obj.id}`}>
+                    <div  className="book">
+                        <div className="book_img"><img src={obj.imageurl} alt="book"></img></div>
+                        <div className="book_name">{obj.name}</div>
+                        <div className="book_subName">{obj.subname}</div>
+                    </div>
+                </Link>
+                ))
+            }                    
+        </Slider>
+    </div>
+            
+        </div>
+            
+          
+        );
+      
+    
+    
+}
+
+    
+//export default  SliderMin
