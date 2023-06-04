@@ -6,7 +6,8 @@ const initialState = {
         order: 'desc',
     },
     sortByBar: null,
-    sortByBarGenre: null
+    sortByBarGenre: null,
+    addedCategorias: null
 }
 
 const filtres = (state = initialState,action) => {
@@ -32,6 +33,12 @@ const filtres = (state = initialState,action) => {
         return{
             ...state,
             sortByBarGenre: action.payload,
+        };
+    }
+    if(action.type ==="SET_ADDED_CATEGORIAS"){
+        return{
+            ...state,
+            addedCategorias: action.payload,
         };
     }
     return state;
