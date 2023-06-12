@@ -51,7 +51,7 @@ export const fetchBooksHome = () => (dispatch)=>{
 export const fetchBooksPage = (id) => (dispatch)=>{
     console.log(id)
     axios.get(`/book/${id}`).then(({data}) =>{
-    dispatch(setBooks(data));
+    dispatch(setBookPage(data));
 });
 };
 
@@ -69,6 +69,11 @@ export const addBookProfile = (payload) => (dispatch)=>{
 //////
 export const setBooks= (items)=>({
     type: "SET_BOOKS",
+    payload : items,
+
+});
+export const setBookPage = (items)=>({
+    type: "SET_BOOK_PAGE",
     payload : items,
 
 });
