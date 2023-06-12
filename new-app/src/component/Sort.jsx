@@ -6,10 +6,8 @@ const Sort = React.memo(function Sort({items,activeSortType,onClickSortType}) {
 
     const [visibleSort , setvisibleSort] = useState(false)
     const sortRef = useRef();
-    // const [activeSort, setActiveSort] = useState(0)
     
     const activeName = items.find((obj) => obj.type === activeSortType).name // предмет[0]
-console.log(activeName)
 
     const switchActive = (index) =>{
         if(onClickSortType){
@@ -31,7 +29,6 @@ console.log(activeName)
 
     useEffect(() => {
         document.addEventListener('click' , handleOutClick);
-        console.log(sortRef.current)
     },[]);
 
 
