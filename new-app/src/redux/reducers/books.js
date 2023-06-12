@@ -11,6 +11,12 @@ const books = (state = initialState,action) => {
                 items: action.payload,
                 isLoaded: true,
             };
+        case "SET_BOOK_PAGE":
+            return{
+                ...state,
+                items: action.payload,
+                isLoaded: true,
+            };
         case "SET_LOADING":
             return{
                 ...state,
