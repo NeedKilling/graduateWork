@@ -55,7 +55,32 @@ function Text() {
             }else if(name === "Владея Ничем"){
               const TEXT = await axios.get(`http://localhost:3001/PossessingNothing`)
               setTEXT(TEXT.data)
+            }else if(name === "Злая семейка герцога Грида"){
+              const TEXT = await axios.get(`http://localhost:3001/EvilLike`)
+              setTEXT(TEXT.data)
+            }else if(name === "86 — Восемьдесят шесть"){
+              const TEXT = await axios.get(`http://localhost:3001/EightySix`)
+              setTEXT(TEXT.data)
+            }else if(name === "Гримгар Пепла и Иллюзий"){
+              const TEXT = await axios.get(`http://localhost:3001/Grimgal`)
+              setTEXT(TEXT.data)
+            }else if(name === "Легендарный механик"){
+              const TEXT = await axios.get(`http://localhost:3001/TheLegendaryMechanic`)
+              setTEXT(TEXT.data)
+            }else if(name === "Рай монстров"){
+              const TEXT = await axios.get(`http://localhost:3001/MonsterParadise`)
+              setTEXT(TEXT.data)
+            }else if(name === "Слава Королю!"){
+              const TEXT = await axios.get(`http://localhost:3001/HailTheKing`)
+              setTEXT(TEXT.data)
+            }else if(name === "Воинственный Бог Асура"){
+              const TEXT = await axios.get(`http://localhost:3001/MartialGodAsura`)
+              setTEXT(TEXT.data)
+            }else if(name === "Первый Орден"){
+              const TEXT = await axios.get(`http://localhost:3001/TheFirstOrder`)
+              setTEXT(TEXT.data)
             }
+            
           }
           getText()
     }, []);
@@ -89,6 +114,7 @@ function Text() {
           nextText={nextText} 
           prevText={prevText}
           currentPage = {currentPage}
+          id = {id}
           
           />
            
