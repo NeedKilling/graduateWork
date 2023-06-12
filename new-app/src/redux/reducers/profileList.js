@@ -43,6 +43,19 @@ const initialState = {
                 totalCount: 0,
                 items:{}
             }
+         case "REMOVE_PROFILE_ITEM":
+
+            const newItems = {
+                ...state.items
+            }
+            const currentTotalCount = newItems[action.payload].length
+            delete newItems[action.payload]
+
+            return{
+                ...state,
+                items: newItems,
+                totalCount: state.totalCount - currentTotalCount    
+            }
          default:
              return state
      }
