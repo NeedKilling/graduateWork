@@ -2,8 +2,11 @@ import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import {BookHome, SliderBig,SliderMin} from '../component';
 import { fetchBooksHome} from '../redux/actions/books';
+import { AuthContext } from '../hoc/AuthProvider';
 
 function Home (){
+    const {user} = React.useContext(AuthContext)
+
     const dispatch = useDispatch();
     const items = useSelector(({Profile}) => Profile.items);
     const totalCount = useSelector(({Profile})=>Profile.totalCount)
@@ -19,7 +22,8 @@ function Home (){
                 items[key][5] || items[key][4] || items[key][3] || items[key][2] || items[key][1] || items[key][0]
         
     });
-    const categoriasBooks = addedBooksProfile.filter(e => e.type === "Читаю") 
+    console.log(addedBooksProfile)
+    const categoriasBooks = addedBooksProfile.filter(e => e.type === "Читаю")
     addedBooksProfile = categoriasBooks
 
         return(
@@ -49,7 +53,7 @@ function Home (){
             </div>
                 {
                     itemsState.map(obj =>(    
-                    <BookHome key = {obj.id} {...obj}/>
+                    <BookHome key = {obj.id} {...obj} user = {user.email}/>
                     ))
                 }
                 {/* <div className='more'>Загрузить еще...</div> */}
