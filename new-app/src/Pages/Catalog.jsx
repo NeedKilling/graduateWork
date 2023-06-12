@@ -38,21 +38,37 @@ function Catalog (){
     const SortCountry = ["Япония","Корея","Китай"]
     const SortGenre = ["фентези","комедия","романтика","боевик","драма","триллер","фантастика","ужасы"]
       
+    const [valueSearh,setValueSearh] = React.useState('')
+
+    const filtresBooks = items.filter(book => {
+       return book.name.toLowerCase().includes(valueSearh.toLowerCase()) || book.subname.toLowerCase().includes(valueSearh.toLowerCase())
+   })
+   const reset = () =>{
+    setValueSearh('')
+    }   
         return(
             <div>
 <div className="catalog">
     <div className="container">
         <div className="wrapper">            
             <div className="catalog_head">
-                <div className="title">Каталог</div>
+                {/* <div className="title">Каталог</div> */}
+
+                    <div className="searh">
+                        <form className="searh_form">
+                            <input value = {valueSearh} onChange = {(e)=>setValueSearh(e.target.value)} type="text" placeholder="Поиск по названию..."></input>
+                            <div onClick={reset} className="clear"></div>
+                        </form>
+                    </div>
+
                 <Sort activeSortType = {sortBy.type} items={SortName} onClickSortType={onClickSortType} />
             </div>
             <div className="content"> 
                {
-               isLoaded ? items.map((obj,index) => (
+               isLoaded ? filtresBooks.map((obj,index) => (
                     <Link key = {`${obj.name}_${index}`} to = {`/Book/${obj.id}`} {...obj} >
                     <BookCatalog key = {`${obj.name}_${index}`} isLoading = {true} {...obj}/></Link> 
-                )) : Array(15).fill(<LoadingCatalog/>)
+                )) : Array(5).fill(<LoadingCatalog/>)
                } 
               
             </div>
