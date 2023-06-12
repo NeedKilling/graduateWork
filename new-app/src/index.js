@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import './sass/style.sass';
 import App from './App';
 
-
+const User = React.createContext({})
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
