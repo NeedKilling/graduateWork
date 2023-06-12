@@ -7,7 +7,7 @@ import test from "../../assets/img/book.png"
 export default function SliderMin ({addedBooksProfile,curentReadBooks}) {
     
     const settings = {
-        slidesToShow: 5,
+        slidesToShow: 6,
         easing: 'easeInOutQuad',
         autoplay: false,
         speed: 1000,
@@ -24,7 +24,7 @@ export default function SliderMin ({addedBooksProfile,curentReadBooks}) {
         focusOnSelect: false,
         
 }
-    if(curentReadBooks <= 5 ){
+    if(curentReadBooks <= 6 ){
         settings.infinite = false
     }else{
         settings.infinite = true
