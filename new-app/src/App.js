@@ -5,7 +5,9 @@ import {useSelector,useDispatch} from 'react-redux'
 import {fetchBooks} from './redux/actions/books';
 
 import {Header, Footer} from './component';
-import { Home, Profile, Catalog, Popular, Subscription,BookPage,Text} from './Pages'; 
+import { Home, Profile, Catalog, Popular, Subscription,BookPage,Text, LogIn, Register} from './Pages'; 
+
+import { AuthProvider } from './hoc/AuthProvider';
 
 function App(){
   const dispatch = useDispatch();
@@ -14,24 +16,30 @@ function App(){
   return(
     
     <div className="wrap">
+     
+      
+      <AuthProvider>
       <Header/>
-      
-      
         <Routes>
-            <Route  path="/" element={<Home/>}/>
-            <Route  path="/Catalog" element={<Catalog/>} exact/>
-            <Route  path="/Profile" element={<Profile/>}/>
-            <Route  path="/Popular" element={<Popular/>}/>
-            <Route  path="/Subscription" element={<Subscription/>}/>
-            <Route path='/Book/:id' element={<BookPage/>}/>
-            <Route path='/Book/:id/:name' element={<Text/>}/>
-            
-            
-        </Routes>
+              <Route  path="/" element={<Home/>}/>
+              <Route  path="/Catalog" element={<Catalog/>} exact/>
+              <Route  path="/Profile" element={
+              
+                  <Profile/>
+              
+              }/>
+              <Route  path="/Popular" element={<Popular/>}/>
+              <Route  path="/Subscription" element={<Subscription/>}/>
+              <Route path='/Book/:id' element={<BookPage/>}/>
+              <Route path='/Book/:id/:name' element={<Text/>}/>
+              <Route path='/LogIn' element={<LogIn/>}/>
+              <Route path='/Register' element={<Register/>}/>
+          </Routes>
+        <Footer/>
+      </AuthProvider>
       
       
-      
-      <Footer/>
+     
       </div>   
   );
 };
