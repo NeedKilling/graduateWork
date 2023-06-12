@@ -1,9 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useParams,Link } from 'react-router-dom';
-import { useEffect,useState } from 'react';
-import { fetchBooksHome } from '../redux/actions/books';
-import { addBooksProfile } from '../redux/actions/profieList';
 
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
@@ -11,14 +8,15 @@ import { setAddedCategorias } from '../redux/actions/filtres';
 
 import {BookMarkInPage} from '../component'
 import star from "../assets/icons/star.svg"
-import filtres from '../redux/reducers/filtres';
-
+import { AuthContext } from '../hoc/AuthProvider';
 
 function BookPage() {
-    const dispatch = useDispatch()
-    const items = useSelector((state) => state.Books.items);
-    const {id} = useParams()
+    const {user} = React.useContext(AuthContext)
 
+    const dispatch = useDispatch()
+    //const items = useSelector((state) => state.Books.items);
+    const {id} = useParams()
+    
     const {addedCategorias} = useSelector(({filtres}) => filtres)
     const [rquest,setRquest] = React.useState([])
 
@@ -36,7 +34,8 @@ function BookPage() {
 
 
     React.useEffect(()=>{
-        dispatch(fetchBooksHome());
+        //dispatch(fetchBooksHome());
+        //dispatch(fetchBooksPage(id))
         (async () => {
             const quest = await axios.get(`/book/${id}`)
             setRquest(quest.data)
@@ -54,7 +53,7 @@ function BookPage() {
                 <div className="wrapper">
                     <div className="bookPage_right">
                         <div className="bookPage_img"><img src={rquest.imageurl} alt=""></img></div>
-                        <Link to={`/Book/${id}/${rquest.name}`} className="bookPage_link continue">Читать</Link>
+                        <Link to={user.email ? `/Book/${id}/${rquest.name}` : `/LogIn`} className="bookPage_link continue">Читать</Link>
 
                         <BookMarkInPage 
                             id={rquest.id} 
@@ -64,6 +63,7 @@ function BookPage() {
                             onClickAddBook={onClickAddBooks}
                             onAddedCategorias = {onAddedCategorias}
                             activeCategorias = {addedCategorias}
+                            user = {user.email}
                         />
 
                     </div>
