@@ -8,11 +8,15 @@ import profile_back from "../assets/img/profile_back.jpg"
 
 import BookProfile from '../component/BookBlock/BookProfile';
 import {setCategorias} from "../redux/actions/filtres"
-import { ClearProfile } from '../redux/actions/profieList';
+import { ClearProfile,removeProfileItem } from '../redux/actions/profieList';
 import {  LoadingProfile } from '../component';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
+import { AuthContext } from '../hoc/AuthProvider';
 
 function Profile(){
+    
+    const {user} = React.useContext(AuthContext)
+
     const dispatch = useDispatch();
 
     const items = useSelector(({Profile}) => Profile.items); //получение из редакса книг
@@ -67,14 +71,21 @@ function Profile(){
         }
     }
 
-        return(
+
+    const onRemoveItem = (id) =>{
+        if(window.confirm('Вы действительно хотите удалить?')){
+            dispatch(removeProfileItem(id));
+        }
+    }
+     
+return(
 
     <div className="profile">
         <div className="container">
             <div className="wrapper">
                     <div className="profile_image"><img src={profile_image} alt="image"></img></div>
                     <div className="profile_intro"><img src={profile_back} alt="image_back"></img></div>
-                    <div className="profile_nickName"><div className="nick">USER</div></div>
+                    <div className="profile_nickName"><div className="nick">{user.userName || user.email}</div></div>
                 <div className="profile_navBar">
                     {/* <a href="#" className="navBar_link">Списки</a>
                     <a href="#" className="navBar_link">Настройки</a> */}
@@ -92,7 +103,7 @@ function Profile(){
                     totalCount ? 
                         items &&
                             isLoaded ? addedBooksProfile.map(obj=>(
-                                <BookProfile key = {obj.id} {...obj}/>
+                                <BookProfile key = {obj.id} {...obj} onRemove={onRemoveItem}/>
                             )) :  Array(15).fill(<LoadingProfile/>)
                        :
                        <div className='content_clear'>
