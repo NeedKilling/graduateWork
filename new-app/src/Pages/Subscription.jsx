@@ -16,7 +16,7 @@ function Subscription(){
                             <div class="description">
                                 <div class="value">200 руб.</div>
                                 <div class="term">1 месяц</div>
-                                <div class="text">отключение рекламы</div>
+                                
                             </div>
                             <button class="btn">Купить</button>
                         </div>
@@ -25,7 +25,7 @@ function Subscription(){
                             <div class="description">
                                 <div class="value">550 руб.</div>
                                 <div class="term">3 месяца</div>
-                                <div class="text">отключение рекламы</div>
+                                
                             </div>
                             <button class="btn">Купить</button>
                         </div>
@@ -34,7 +34,7 @@ function Subscription(){
                             <div class="description">
                                 <div class="value">1900 руб.</div>
                                 <div class="term">1 год</div>
-                                <div class="text">отключение рекламы</div>
+                                
                             </div>
                             <button class="btn">Купить</button>
                         </div>
@@ -50,20 +50,6 @@ function Subscription(){
                               <td>Бронза</td>
                               <td>Серебро</td>
                               <td>Золото</td>
-                            </tr>
-                            <tr>
-                              <td>Отключение рекламы</td>
-                              <td></td>
-                              <td><div class="pip"></div></td>
-                              <td><div class="pip"></div></td>
-                              <td><div class="pip"></div></td>
-                            </tr>
-                            <tr>
-                              <td>Доступ к главам по подписке</td>
-                              <td></td>
-                              <td><div class="pip"></div></td>
-                              <td><div class="pip"></div></td>
-                              <td><div class="pip"></div></td>
                             </tr>
                             <tr>
                               <td>Gif - аватар</td>
