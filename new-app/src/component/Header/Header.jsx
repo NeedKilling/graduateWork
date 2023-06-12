@@ -1,5 +1,4 @@
 import React, { useState ,useRef, useContext} from 'react';
-import ProfileDrop from './ProfileDrop'
 import { useSelector } from 'react-redux';
 import {Link,useNavigate} from 'react-router-dom'
 import {AiOutlineUser} from "react-icons/ai"
