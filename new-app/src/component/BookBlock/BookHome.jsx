@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { setCategorias } from '../../redux/actions/filtres'
 
 
-function BookHome({id,name,imageurl,subname,rating,description}) {
+function BookHome({user,id,name,imageurl,subname,rating,description}) {
     
     
 
@@ -30,7 +30,7 @@ function BookHome({id,name,imageurl,subname,rating,description}) {
                 </div>
             </div>
             <div className="book-item__bottom">
-                <Link to ={`/Book/${id}/${name}`} className="read">Читать</Link>
+                <Link to ={user ? `/Book/${id}/${name}` : `/LogIn`} className="read">Читать</Link>
                 {/* <BookMark /> */}
             </div>
         </div>
