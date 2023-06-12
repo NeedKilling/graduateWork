@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function Pagination({textForPage,totalTEXT, paginat,nextText,prevText,currentPage}) {
-
+function Pagination({id,textForPage,totalTEXT, paginat,nextText,prevText,currentPage}) {
     const pageNumbers = []
 
     for(let i = 1; i <= Math.ceil(totalTEXT / textForPage); i++){
@@ -33,22 +33,18 @@ function Pagination({textForPage,totalTEXT, paginat,nextText,prevText,currentPag
     <div className='Pagination'>
         <div className="block">
             <a href="#" onClick={prevText} className = {currentPage === 1 ? "block_number arrow disabled" : "block_number arrow"}>{"<"}</a>
-            <dib className="wrapper"> 
+            <div className="wrapper"> 
             {
-                // pageNumbers.map((number,index) => (
-                //     <a href='#' className={index+1 === currentPage ? 'block_number active' : 'block_number'} key = {number}  onClick={() => paginat(number)}>{number}</a>
-                // ))
                 buttonsToRender.map((number,index) => 
                     number === '...' ? <div className='block_number'>{'...'}</div> : 
-
                     (
                     <a href='#' className={number === currentPage ? 'block_number active' : 'block_number'} key = {number}  onClick={() => paginat(number)}>{number}</a>
-                    )
-                )
-            
+                    ))
             }
-            </dib>
-            <a href="#" onClick={nextText} className = {currentPage >= pageNumbers.length ? "block_number arrow disabled" : "block_number arrow"}>{">"}</a>
+            </div>
+            {currentPage >= pageNumbers.length ? <Link to = {`/Book/${id}`}><div className="block_number arrow redirect">На страницу книги</div></Link> : 
+            <a href="#" onClick={nextText} className="block_number arrow">{">"}</a>
+            }
         </div>
     </div>
   )
